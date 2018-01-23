@@ -1,0 +1,101 @@
+/*--Responsive--*/
+@media screen and (max-width: 1024px){
+	.grid12{
+			margin: 10px 1%;
+			padding: 0;
+			width: 98.3%;
+			vertical-align: top;
+		}
+}
+
+@media screen and (max-width: 800px){
+
+	/*--Header--*/
+	.course_title h1{
+		font-size: 22px !important;
+		line-height: 23px !important;
+	}
+	.level_unit h1{
+		font-size: 18px !important;
+		line-height: 22px !important;
+	}
+	.lesson_title h1{
+		font-size: 18px !important;
+		line-height: 22px !important;
+	}
+	.main_container header {
+		height: 58px;
+	}
+
+}
+
+@media screen and (max-width: 768px){
+
+	/*--Header--*/
+	.main_container header {
+		height: 58px;
+	}
+}
+
+@media screen and (max-width: 680px){
+
+	/*--Header--*/
+	.course_title, .level_unit, .lesson_title{
+		padding-top: 5px;
+	}
+	.level_unit{
+		margin-left: -5px !important;
+	}
+	.lesson_title{
+		margin-left: -5px !important;
+	}
+	.course_title h1{
+		font-size: 17px !important;
+		line-height: 19px !important;
+	}
+	.level_unit h1{
+		font-size: 16px !important;
+		line-height: 19px !important;
+	}
+	.lesson_title h1{
+		font-size: 15px !important;
+		line-height: 19px !important;
+	}
+	.main_container header {
+		height: 58px;
+	}
+
+	/*--Layout intro--*/
+	.title_1 h1:first-child{
+		font-size: 31px;
+	}
+	.title_1 h1:last-child{
+		font-size: 31px;
+	}
+	.title_2 h1:first-child{
+		font-size: 28px;
+	}
+	.title_2 h1:last-child{
+		font-size: 28px;
+	}
+	.title_3 .title_1{
+		font-size: 27px;
+		line-height: 0;
+	}
+	.title_3 .title_2{
+		font-size: 23px;
+	}
+
+	.info_fac li:first-child{
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 360px){
+	body{
+		width: 360px;
+		padding: 0;
+		margin: 0;
+	}
+}

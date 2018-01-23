@@ -1,0 +1,17 @@
+#option_12_1{
+	height: 170px;
+}
+
+.questions_3_3 li div{
+	max-width: 100px;
+}
+.questions_3_3 li div figure{
+	background: none;
+	padding: 0;
+	margin: 0;
+	border: none;
+}
+.questions_3_3 li div figure img{
+	padding: 0;
+	margin: 0;
+}
