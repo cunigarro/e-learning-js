@@ -22,7 +22,5 @@ These are the following activities:
   <li><strong>Drag and drop images</strong></li>
   <li><strong>Accordion select</strong></li>
   <li><strong>Crossword</strong></li>
-  <li><strong>Wordsearch</strong></li>
   <li><strong>Concentrate</strong></li>
-  <li><strong>Match up</strong></li>
 </ol>
