@@ -10,7 +10,6 @@ var content_menu =
     '<li><a href="p08.html" target="_self">7. Drag and drop images</a></li>' +
     '<li><a href="p09.html" target="_self">8. Accordion select</a></li>' +
     '<li><a href="p10.html" target="_self">9. Crossword puzzle</a></li>' +
-    '<li><a href="p11.html" target="_self">10. Wordsearch</a></li>' +
-    '<li><a href="p12.html" target="_self">11. Concentrate</a></li>' +
-    '<li><a href="p13.html" target="_self">12. Match up</a></li>' +
+    '<li><a href="p11.html" target="_self">10. Concentrate</a></li>' +
+    '<li><a href="p12.html" target="_self">11. Match up</a></li>' +
 '</ul>';
