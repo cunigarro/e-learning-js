@@ -2,11 +2,9 @@
 
 E-learning Js is licensed under a Creative Commons Attribution 3.0 Unported (CC BY 3.0) (http://creativecommons.org/licenses/by/3.0/) and MIT License - http://opensource.org/licenses/mit-license.html.
 
-You are allowed to use these elements anywhere and modify it if you want.
+Actually this library is an entire demo, feel free to download and use it on any project.
 
 <h2>List of activities:</h2>
-
-This group of components allow us to create self-assessment activities for online courses through blocks of code that will guide us through his development.
 
 Each design has a default design but you can also replace the images to fit your design.
 
