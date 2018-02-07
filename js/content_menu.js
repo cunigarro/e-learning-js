@@ -8,7 +8,5 @@ var content_menu =
     '<li><a href="p06.html" target="_self">5. Multiples answers</a></li>' +
     '<li><a href="p07.html" target="_self">6. False and True</a></li>' +
     '<li><a href="p08.html" target="_self">7. Drag and drop images</a></li>' +
-    '<li><a href="p09.html" target="_self">8. Accordion select</a></li>' +
-    '<li><a href="p10.html" target="_self">9. Crossword puzzle</a></li>' +
-    '<li><a href="p11.html" target="_self">10. Concentrate</a></li>'
+    '<li><a href="p09.html" target="_self">8. Accordion select</a></li>'
 '</ul>';

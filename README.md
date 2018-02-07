@@ -1,4 +1,4 @@
-<h1>E-learning Js 1.0</h1>
+<h1>E-learning Js 0.1 (Alpha 1)</h1>
 
 E-learning Js is licensed under a Creative Commons Attribution 3.0 Unported (CC BY 3.0) (http://creativecommons.org/licenses/by/3.0/) and MIT License - http://opensource.org/licenses/mit-license.html.
 
@@ -21,6 +21,4 @@ These are the following activities:
   <li><strong>False and True</strong></li>
   <li><strong>Drag and drop images</strong></li>
   <li><strong>Accordion select</strong></li>
-  <li><strong>Crossword</strong></li>
-  <li><strong>Concentrate</strong></li>
 </ol>

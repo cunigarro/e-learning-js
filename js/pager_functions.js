@@ -1,4 +1,4 @@
-var total_pages = 11;
+var total_pages = 9;
 
 /*--Go to previos and next page--*/
 function go_prev(number_page){
