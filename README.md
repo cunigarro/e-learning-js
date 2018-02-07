@@ -1,6 +1,6 @@
 <h1>E-learning Js 0.1 (Alpha 1)</h1>
 
-E-learning Js is licensed under a Creative Commons Attribution 3.0 Unported (CC BY 3.0) (http://creativecommons.org/licenses/by/3.0/) and MIT License - http://opensource.org/licenses/mit-license.html.
+E-learning Js is licensed under a [MIT License](https://github.com/cunigarro/e-learning-js/blob/master/LICENSE).
 
 Actually this library is an entire demo, feel free to download and use it on any project.
 
