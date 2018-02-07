@@ -193,12 +193,12 @@
 }
 #rf-searchgamecontainer {
     float: left;
-    padding-right: 50px; 
+    padding-right: 50px;
 }
 #rf-wordcontainer {
     font-family: Verdana,Arial,Helvetica,sans-serif;
     float :left;
-    padding-right: 50px; 
+    padding-right: 50px;
     cursor: default;
 	margin : 1em 1em 1em 0;
     border: 2px solid;
@@ -206,8 +206,8 @@
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     -khtml-border-radius: 20px;
-    border-radius: 20px;	   
-	cursor: pointer;	
+    border-radius: 20px;
+	cursor: pointer;
 }
 .rf-foundword {
     font-family: Verdana,Arial,Helvetica,sans-serif;
@@ -219,14 +219,14 @@
     background: red;
 }
 #rf-tablegrid .rf-glowing {
-	background: greenyellow;       
+	background: greenyellow;
 }
 #rf-tablegrid .rf-selected {
 	background: gold;
 }
 .rf-pfalse {
     color: gray;
-    visibility: hidden; 
+    visibility: hidden;
 }
 
 /*--Crucigrama--*/
