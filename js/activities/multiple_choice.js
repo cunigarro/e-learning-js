@@ -1,21 +1,21 @@
 /*--Page 2 activity 1--*/
-create_multiple_choice (
-    $('.questions_2_1'),
-    $('#check_answers_2_1'),
-    $('#reset_answers_2_1'),
-    $('#answers_2_1'),
-    {
-        'question_2_1_1': ["father's", "father´s", "father"],
-        'question_2_1_2': ["sisters", "option_1", "option_2"],
-        'question_2_1_3': ["husband", "option_1", "option_2"],
-        'question_2_1_4': ["wife", "option_2"],
-        'question_2_1_5': ["children", "option_2"],
-        'question_2_1_6': ["husband", "option_2"],
-    }
-);
+create_multiple_choice ({
+  questions_html: $('.questions_2_1'),
+  check_button: $('#check_answers_2_1'),
+  reset_button: $('#reset_answers_2_1'),
+  answer_button: $('#answers_2_1'),
+  answers: [
+    ['father\'s', 'father´s', 'father'],
+    ['sisters', 'option_1', 'option_2'],
+    ['husband', 'option_1', 'option_2'],
+    ['wife', 'option_2'],
+    ['children', 'option_2'],
+    ['husband', 'option_2']
+  ]
+});
 
 /*--Page 2 activity 2--*/
-create_multiple_choice (
+/* create_multiple_choice (
     $('.questions_2_2'),
     $('#check_answers_2_2'),
     $('#reset_answers_2_2'),
@@ -29,10 +29,10 @@ create_multiple_choice (
         'question_2_2_6': ["husband", "option_2"],
         'question_2_2_7': ["husband", "option_2"]
     }
-);
+); */
 
 /*--Page 2 activity 3--*/
-create_multiple_choice (
+/* create_multiple_choice (
     $('.questions_2_3'),
     $('#check_answers_2_3'),
     $('#reset_answers_2_3'),
@@ -47,10 +47,10 @@ create_multiple_choice (
         'question_2_3_7': ["husband", "option_2"],
         'question_2_3_8': ["husband", "option_2"]
     }
-);
+); */
 
 /*--Page 2 activity 4--*/
-create_multiple_choice (
+/* create_multiple_choice (
     $('.questions_2_4'),
     $('#check_answers_2_4'),
     $('#reset_answers_2_4'),
@@ -65,10 +65,10 @@ create_multiple_choice (
         'question_2_4_7': ["husband", "option_2"],
         'question_2_4_8': ["husband", "option_2"]
     }
-);
+); */
 
 /*--Page 2 activity 5--*/
-create_multiple_choice (
+/* create_multiple_choice (
     $('.questions_2_5'),
     $('#check_answers_2_5'),
     $('#reset_answers_2_5'),
@@ -83,4 +83,4 @@ create_multiple_choice (
         'question_2_5_7': ["husband", "option_2"],
         'question_2_5_8': ["husband", "option_2"]
     }
-);
+); */

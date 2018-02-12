@@ -1,84 +1,105 @@
+// Auxiliar methods
+function addEventHandler(elem, eventType, handler) {
+  if (elem.addEventListener)
+    elem.addEventListener (eventType, handler, false);
+  else if (elem.attachEvent)
+    elem.attachEvent ('on' + eventType, handler);
+}
+
 /*--Multiple choice--*/
-function create_multiple_choice (questions_html,check_button,reset_button,answer_button,answers_amount){
-    answer_button.hide();
-    reset_button.hide();
-    check_button.css('position','relative');
+function create_multiple_choice (options) {
+    var questions_html = options.questions_html;
+    var check_button = options.check_button;
+    var reset_button = options.reset_button;
+    var answer_button = options.answer_button;
+    var answers = options.answers;
 
     var answered = false;
+    var inputs = questions_html[0].querySelectorAll('input');
 
-    var answers = answers_amount;
+    answer_button[0].style.display = 'none';
+    reset_button[0].style.display = 'none';
+    check_button[0].style.position = 'relative';
 
-    for (qu in answers) {
-        answers[qu]['answer'] = '';
-    }
+    // for (var key in answers) {
+    //   answers[key]['answer'] = '';
+    // }
 
-    questions_html.find('input').on('change', function () {
+    inputs.forEach(function(item, i){
+      addEventHandler(item, 'input', function() {
         answered = true;
+      });
     });
 
-    check_button.click(function () {
-        questions_html.find('input').each(function( key, element) {
-
-            var correct_answer = answers[$(element).data('question')];
-            var user_answer = $(element).val();
-
-            answers[$(element).data('question')]['answer'] = user_answer;
-
-            if(user_answer.length > 0) {
-                $(element).next().find('.good_icon').parent().addClass('activity_span');
-                if ($.inArray(user_answer, correct_answer) > -1) {
-                    $(element).next().find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.good_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.wrong_icon').css('display','none');
-                } else {
-                    $(element).next().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.good_icon').css('display','none');
-                }
-            }
-        });
-
-       if(answered === true){
-            answer_button.fadeIn();
-            check_button.css('display', 'none');
-            reset_button.fadeIn();
-       }
+    addEventHandler(check_button[0], 'click', function() {
+      console.log('hola');
+      inputs.forEach(function(item, i){
+        var correct_answer = answers[i];
+        var user_answer = item.value;
+      });
     });
 
+    /* check_button[0].click(function () {
+      questions_html[0].find('input').each(function( key, element) {
+        var correct_answer = answers[$(element).data('question')];
+        var user_answer = $(element).val();
 
-    reset_button.click(function () {
+        answers[$(element).data('question')]['answer'] = user_answer;
+
+        if(user_answer.length > 0) {
+          $(element).next().find('.good_icon').parent().addClass('activity_span');
+          if ($.inArray(user_answer, correct_answer) > -1) {
+            $(element).next().find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
+            $(element).next().find('.good_icon').fadeIn('normal').css("display","inline-block");
+            $(element).next().find('.wrong_icon').css('display','none');
+          } else {
+            $(element).next().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
+            $(element).next().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
+            $(element).next().find('.good_icon').css('display','none');
+          }
+        }
+      });
+
+      if(answered === true){
+        answer_button[0].fadeIn();
+        check_button[0].css('display', 'none');
+        reset_button[0].fadeIn();
+      }
+    }); */
+
+    /* options.reset_button.click(function () {
         answered = false;
         for (qu in answers) {
             answers[qu]['answer'] = false;
         }
         questions_html.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        questions_html.find('input').each(function( key, element) {
+        options.questions_html.find('input').each(function( key, element) {
             $(element).val('').css({'color':'#000','font-family':'open_sansregular'});
         });
 
-        answer_button.hide();
-        check_button.fadeIn();
+        options.answer_button.hide();
+        options.check_button.fadeIn();
         $(this).hide();
     });
 
-    answer_button.click(function () {
-        questions_html.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        questions_html.val('').css({'color':'#000','font-family':'open_sansregular'});
+    options.answer_button.click(function () {
+        options.questions_html.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
+        options.questions_html.val('').css({'color':'#000','font-family':'open_sansregular'});
 
         for (question in answers) {
             var correct_answer = answers[question][0];
             var user_answer = answers[question]['answer'];
 
             if (user_answer.length > 0) {
-                questions_html.find("[data-question='" + question + "']").css({'color':'#00B050','font-family':'open_sansregular'}).val(correct_answer);
+                options.questions_html.find("[data-question='" + question + "']").css({'color':'#00B050','font-family':'open_sansregular'}).val(correct_answer);
             }
         }
-    });
+    }); */
 }
 /*--Multiple choice--*/
 
 /*--Select--*/
-function create_select(questions_html,check_button,reset_button,answer_button,answers_amount){
+function create_select(questions_html,check_button,reset_button,answer_button,answers_amount) {
     answer_button.hide();
     reset_button.hide();
     check_button.css('position','relative');
@@ -367,7 +388,7 @@ function create_multiple_unique_asnwers (questions_html,check_button,reset_butto
             answer_button.fadeIn();
             check_button.css('display', 'none');
             reset_button.fadeIn();
-            
+
         }
     });
 
@@ -398,7 +419,7 @@ function create_multiple_unique_asnwers (questions_html,check_button,reset_butto
         for (question in questions) {
             var correct_answer = answers[question];
             var user_answer = questions[question]['answer'];
-            
+
             if (user_answer) {
                 questions_html.find("[data-question='" + question + "']").find("[data-option='" + correct_answer + "']").prop("checked", true).parent().css({'color':'#00B050','font-family':'open_sanssemibold'});
             }
@@ -501,7 +522,7 @@ function create_multiple_answers (questions_html,check_button,reset_button,answe
         if (answered === true) {
             answer_button.fadeIn();
             check_button.css('display', 'none');
-            reset_button.fadeIn();   
+            reset_button.fadeIn();
         }
     });
 
@@ -538,12 +559,12 @@ function create_multiple_answers (questions_html,check_button,reset_button,answe
                     answered_question = true
                 }
             }
-            
+
             if (answered_question) {
                 $.each(correct_answer, function(key, value) {
                     if (value === true) {
                     questions_html.find("[data-question='" + question + "']").find("[data-option='" + key + "']").prop("checked", true).parent().css({'color':'#00B050','font-family':'open_sanssemibold'});
-                        
+
                     }
                 });
             }
@@ -584,7 +605,7 @@ function create_false_true (questions_html,check_button,reset_button,answer_butt
     check_button.click(function () {
         questions_html.find('li').each(function( key, element) {
             var correct_answer = answers[$(element).data('question')];
-            var selected_answer = questions[$(element).data('question')]['answer']; 
+            var selected_answer = questions[$(element).data('question')]['answer'];
             if (selected_answer) {
                 $(element).parent().find('.good_icon').parent().addClass('activity_span');
                 if (correct_answer === selected_answer) {
@@ -634,7 +655,7 @@ function create_false_true (questions_html,check_button,reset_button,answer_butt
         for (question in questions) {
             var correct_answer = answers[question];
             var user_answer = questions[question]['answer'];
-            
+
             if (user_answer) {
                 questions_html.find("[data-question='" + question + "']").find("[data-option='" + correct_answer + "']").prop("checked", true).parent().css({'color':'#00B050','font-family':'open_sanssemibold'});
             }
@@ -824,7 +845,7 @@ function create_accordion_select (questions_html,check_button,reset_button,answe
                 } else {
                     $(element).next().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
                     $(element).next().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.good_icon').css('display','none');  
+                    $(element).next().find('.good_icon').css('display','none');
                 }
             }
         });
@@ -856,10 +877,10 @@ function create_accordion_select (questions_html,check_button,reset_button,answe
         for (question in questions) {
             var user_answer = questions[question]['answer'];
             var correct_answer = answers[question];
-            
+
             if (user_answer) {
                 questions_html.find("[data-position='" + question + "']").val(correct_answer).css('color', '#00B050');
-                
+
             }
         }
 
