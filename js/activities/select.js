@@ -1,22 +1,11 @@
 /*--Page 3 activity 1--*/
-create_select (
-    $('.questions_3_1'),
-    $('#check_answers_3_1'),
-    $('#reset_answers_3_1'),
-    $('#answers_3_1'),
-    {
-        'question_3_1_1': '3',
-        'question_3_1_2': '4',
-        'question_3_1_3': '2',
-        'question_3_1_4': '3',
-        'question_3_1_5': '2',
-        'question_3_1_6': '1',
-        'question_3_1_7': '3',
-        'question_3_1_8': '1',
-        'question_3_1_9': '4',
-        'question_3_1_10': '2'
-    }
-);
+create_select ({
+    questions_html: '.questions_3_1',
+    check_button: '#check_answers_3_1',
+    reset_button: '#reset_answers_3_1',
+    answer_button: '#answers_3_1',
+    answers: [3, 4, 2, 3, 2, 1, 3, 1, 4, 2]
+});
 
 /*--Page 3 activity 2--*/
 /* create_select (

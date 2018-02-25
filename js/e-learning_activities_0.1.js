@@ -84,7 +84,31 @@ function create_multiple_choice(options) {
 /*-- Multiple choice END --*/
 
 /*--Select--*/
-function create_select(questions_html,check_button,reset_button,answer_button,answers_amount) {
+function create_select(options) {
+  var questions_html = document.querySelector(options.questions_html);
+  var inputs = questions_html.querySelectorAll('.js-select-input');
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
+
+  addEventHandler(inputs, 'click', function() {
+    inputs.forEach(function(item, i) {
+
+    });
+  });
+
+  // questions_html.on('click', 'div', function () {
+  //   $(this).parent().find('div').not($(this)).removeClass('selected');
+  //   $(this).addClass('selected');
+
+  //   answered = true;
+  //   var selected_option = $(this).data('select');
+  //   var question = questions[$(this).closest('li').data('question')];
+  //   question['answer'] = selected_option;
+  // });
+}
+/* function create_select(questions_html,check_button,reset_button,answer_button,answers_amount) {
     answer_button.hide();
     reset_button.hide();
     check_button.css('position','relative');
@@ -177,7 +201,7 @@ function create_select(questions_html,check_button,reset_button,answer_button,an
             }
         }
     });
-}
+} */
 /*--Select--*/
 
 /*--Drag and drop--*/
