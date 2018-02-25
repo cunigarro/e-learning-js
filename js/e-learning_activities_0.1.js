@@ -92,10 +92,18 @@ function create_select(options) {
   var answer_button = document.querySelector(options.answer_button);
   var answers = options.answers;
 
-  addEventHandler(inputs, 'click', function() {
-    inputs.forEach(function(item, i) {
-
+  inputs.forEach(function(item, i) {
+    var options = item.querySelectorAll('div');
+    options.forEach(function(item, i) {
+      addEventHandler(item, 'click', function() {
+        Array.prototype.map.call(options, function(el) {
+          el.classList.remove('selected');
+        });
+        this.classList.add('selected');
+      });
     });
+
+    options[options.length - 1].insertAdjacentHTML('afterend', '<span></span>');
   });
 
   // questions_html.on('click', 'div', function () {
