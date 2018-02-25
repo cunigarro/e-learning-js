@@ -96,12 +96,10 @@
 .wrong_icon{
 	display: none;
 	font-size: 25px;
-	position: absolute;
 	color: #E74C3C;
 }.good_icon{
 	display: none;
 	font-size: 25px;
-	position: absolute;
 	color: #4CAE4C;
 }
 

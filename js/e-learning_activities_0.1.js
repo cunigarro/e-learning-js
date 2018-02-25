@@ -6,6 +6,24 @@ function addEventHandler(elem, eventType, handler) {
     elem.attachEvent ('on' + eventType, handler);
 }
 
+function addValidationIcon(result) {
+  var fragment = document.createDocumentFragment();
+  var icon = document.createElement('i');
+
+  icon.style.display = 'inline-block';
+  icon.style.marginLeft = '10px';
+  icon.style.marginRight = '10px';
+  if(result == 'good') {
+    icon.classList.add('good_icon', 'fa', 'fa-check-circle');
+  } else if(result == 'wrong') {
+    icon.classList.add('wrong_icon', 'fa', 'fa-times-circle');
+  }
+
+  fragment.appendChild(icon);
+
+  return fragment;
+}
+
 /*--Multiple choice--*/
 function create_multiple_choice (options) {
     var questions_html = options.questions_html;
@@ -21,22 +39,30 @@ function create_multiple_choice (options) {
     reset_button[0].style.display = 'none';
     check_button[0].style.position = 'relative';
 
-    // for (var key in answers) {
-    //   answers[key]['answer'] = '';
-    // }
-
     inputs.forEach(function(item, i){
       addEventHandler(item, 'input', function() {
         answered = true;
       });
+      item.insertAdjacentHTML('afterend', '<span></span>');
     });
 
     addEventHandler(check_button[0], 'click', function() {
-      console.log('hola');
-      inputs.forEach(function(item, i){
+      inputs.forEach(function(item, i) {
         var correct_answer = answers[i];
         var user_answer = item.value;
+
+        item.nextElementSibling.innerHTML = '';
+        if(user_answer.length > 0) {
+          if (correct_answer.indexOf(user_answer) > -1) {
+            item.nextElementSibling.appendChild(addValidationIcon('good'));
+          } else {
+            item.nextElementSibling.appendChild(addValidationIcon('wrong'));
+          }
+        }
       });
+
+      answer_button[0].style.display = answered ? 'inline-block' : 'none';
+      reset_button[0].style.display = answered ? 'inline-block' : 'none';
     });
 
     /* check_button[0].click(function () {
