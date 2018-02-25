@@ -27,22 +27,13 @@ function addValidationIcon(result) {
 /*-- Multiple choice BEGIN --*/
 function create_multiple_choice(options) {
   var questions_html = document.querySelector(options.questions_html);
+  var inputs = questions_html.querySelectorAll('input');
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
   var answer_button = document.querySelector(options.answer_button);
   var answers = options.answers;
 
-  var answered = false;
-  var inputs = questions_html.querySelectorAll('input');
-
-  answer_button.style.display = 'none';
-  reset_button.style.display = 'none';
-  check_button.style.position = 'relative';
-
   inputs.forEach(function(item, i){
-    addEventHandler(item, 'input', function() {
-      answered = true;
-    });
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 

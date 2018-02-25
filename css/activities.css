@@ -24,7 +24,8 @@
 	margin-right: 5px;
 	position: relative;
 	background-color: #00B3B8;
-	font-size: 14px;
+    font-size: 14px;
+    display: inline-block;
 }
 .btn_activities div:first-child:hover{
 	background-color: #00B3B8;
@@ -41,7 +42,7 @@
 }
 .btn_activities div:nth-child(2){
 	width: 76px;
-	display: inline-block;
+	display: none;
 	margin-right: 5px;
 	position: relative;
 	background-color: #3498DB;
@@ -60,7 +61,7 @@
 .btn_activities div:last-child{
 	position: relative;
 	width: 94px;
-	display: inline-block;
+	display: none;
 	margin-right: 5px;
 	text-align: center;
 	background-color: #4CAE4C;
