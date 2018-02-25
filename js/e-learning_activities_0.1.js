@@ -24,8 +24,8 @@ function addValidationIcon(result) {
   return fragment;
 }
 
-/*--Multiple choice--*/
-function create_multiple_choice (options) {
+/*-- Multiple choice BEGIN --*/
+function create_multiple_choice(options) {
   var questions_html = document.querySelector(options.questions_html);
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
@@ -90,7 +90,7 @@ function create_multiple_choice (options) {
     });
   });
 }
-/*--Multiple choice--*/
+/*-- Multiple choice END --*/
 
 /*--Select--*/
 function create_select(questions_html,check_button,reset_button,answer_button,answers_amount) {

@@ -19,7 +19,7 @@ create_select (
 );
 
 /*--Page 3 activity 2--*/
-create_select (
+/* create_select (
     $('.questions_3_2'),
     $('#check_answers_3_2'),
     $('#reset_answers_3_2'),
@@ -36,10 +36,10 @@ create_select (
         'question_3_2_9': '4',
         'question_3_2_10': '2'
     }
-);
+); */
 
 /*--Page 3 activity 3--*/
-create_select (
+/* create_select (
     $('.questions_3_3'),
     $('#check_answers_3_3'),
     $('#reset_answers_3_3'),
@@ -50,4 +50,4 @@ create_select (
         'question_3_3_3': '2',
         'question_3_3_4': '3'
     }
-);
+); */
