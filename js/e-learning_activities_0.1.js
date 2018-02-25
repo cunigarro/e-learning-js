@@ -26,101 +26,69 @@ function addValidationIcon(result) {
 
 /*--Multiple choice--*/
 function create_multiple_choice (options) {
-    var questions_html = options.questions_html;
-    var check_button = options.check_button;
-    var reset_button = options.reset_button;
-    var answer_button = options.answer_button;
-    var answers = options.answers;
+  var questions_html = document.querySelector(options.questions_html);
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
 
-    var answered = false;
-    var inputs = questions_html[0].querySelectorAll('input');
+  var answered = false;
+  var inputs = questions_html.querySelectorAll('input');
 
-    answer_button[0].style.display = 'none';
-    reset_button[0].style.display = 'none';
-    check_button[0].style.position = 'relative';
+  answer_button.style.display = 'none';
+  reset_button.style.display = 'none';
+  check_button.style.position = 'relative';
 
-    inputs.forEach(function(item, i){
-      addEventHandler(item, 'input', function() {
-        answered = true;
-      });
-      item.insertAdjacentHTML('afterend', '<span></span>');
+  inputs.forEach(function(item, i){
+    addEventHandler(item, 'input', function() {
+      answered = true;
     });
+    item.insertAdjacentHTML('afterend', '<span></span>');
+  });
 
-    addEventHandler(check_button[0], 'click', function() {
-      inputs.forEach(function(item, i) {
-        var correct_answer = answers[i];
-        var user_answer = item.value;
+  addEventHandler(check_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      var correct_answer = answers[i];
+      var user_answer = item.value;
 
-        item.nextElementSibling.innerHTML = '';
-        if(user_answer.length > 0) {
-          if (correct_answer.indexOf(user_answer) > -1) {
-            item.nextElementSibling.appendChild(addValidationIcon('good'));
-          } else {
-            item.nextElementSibling.appendChild(addValidationIcon('wrong'));
-          }
+      item.nextElementSibling.innerHTML = '';
+      if(user_answer.length > 0) {
+        if (correct_answer.indexOf(user_answer.trim()) > -1) {
+          item.nextElementSibling.appendChild(addValidationIcon('good'));
+        } else {
+          item.nextElementSibling.appendChild(addValidationIcon('wrong'));
         }
-      });
 
-      answer_button[0].style.display = answered ? 'inline-block' : 'none';
-      reset_button[0].style.display = answered ? 'inline-block' : 'none';
-    });
-
-    /* check_button[0].click(function () {
-      questions_html[0].find('input').each(function( key, element) {
-        var correct_answer = answers[$(element).data('question')];
-        var user_answer = $(element).val();
-
-        answers[$(element).data('question')]['answer'] = user_answer;
-
-        if(user_answer.length > 0) {
-          $(element).next().find('.good_icon').parent().addClass('activity_span');
-          if ($.inArray(user_answer, correct_answer) > -1) {
-            $(element).next().find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
-            $(element).next().find('.good_icon').fadeIn('normal').css("display","inline-block");
-            $(element).next().find('.wrong_icon').css('display','none');
-          } else {
-            $(element).next().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
-            $(element).next().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-            $(element).next().find('.good_icon').css('display','none');
-          }
-        }
-      });
-
-      if(answered === true){
-        answer_button[0].fadeIn();
-        check_button[0].css('display', 'none');
-        reset_button[0].fadeIn();
+        answer_button.style.display = 'inline-block';
+        reset_button.style.display = 'inline-block';
+        check_button.style.display = 'none';
       }
-    }); */
+    });
+  });
 
-    /* options.reset_button.click(function () {
-        answered = false;
-        for (qu in answers) {
-            answers[qu]['answer'] = false;
-        }
-        questions_html.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        options.questions_html.find('input').each(function( key, element) {
-            $(element).val('').css({'color':'#000','font-family':'open_sansregular'});
-        });
-
-        options.answer_button.hide();
-        options.check_button.fadeIn();
-        $(this).hide();
+  addEventHandler(reset_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      item.value = '';
+      item.nextElementSibling.innerHTML = '';
     });
 
-    options.answer_button.click(function () {
-        options.questions_html.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        options.questions_html.val('').css({'color':'#000','font-family':'open_sansregular'});
+    answer_button.style.display = 'none';
+    reset_button.style.display = 'none';
+    check_button.style.display = 'inline-block';
+  });
 
-        for (question in answers) {
-            var correct_answer = answers[question][0];
-            var user_answer = answers[question]['answer'];
+  addEventHandler(answer_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      var user_answer = item.value;
 
-            if (user_answer.length > 0) {
-                options.questions_html.find("[data-question='" + question + "']").css({'color':'#00B050','font-family':'open_sansregular'}).val(correct_answer);
-            }
-        }
-    }); */
+      item.value = '';
+      item.nextElementSibling.innerHTML = '';
+
+      if(user_answer.length > 0) {
+        item.value = answers[i][0];
+      }
+    });
+  });
 }
 /*--Multiple choice--*/
 
