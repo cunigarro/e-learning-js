@@ -83,7 +83,7 @@ function create_multiple_choice(options) {
 }
 /*-- Multiple choice END --*/
 
-/*--Select--*/
+/*--Select BEGIN --*/
 function create_select(options) {
   var questions_html = document.querySelector(options.questions_html);
   var inputs = questions_html.querySelectorAll('.js-select-input');
@@ -163,7 +163,7 @@ function create_select(options) {
     });
   });
 }
-/*--Select--*/
+/*--Select END --*/
 
 /*--Drag and drop--*/
 function create_drag_drop(answers_options,answers_place,check_button,reset_button,answer_button,answers_amount){
