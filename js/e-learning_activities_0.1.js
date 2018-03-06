@@ -672,89 +672,60 @@ function create_drag_drop_images(answers_options,answers_place,check_button,rese
 /*--Drag and drop images--*/
 
 /*--Accordion select BEGIN --*/
-function create_accordion_select (questions_html,check_button,reset_button,answer_button,answers_amount,options_amount) {
-    answer_button.hide();
-    reset_button.hide();
-    check_button.css('position','relative');
+function create_accordion_select(options) {
+  var questions_html = document.querySelector(options.questions_html);
+  var selects = questions_html.querySelectorAll('select');
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
 
-    var answered = false;
+  selects.forEach(function(item, i){
+    item.insertAdjacentHTML('afterend', '<span></span>');
+  });
 
-    var questions = JSON.parse(JSON.stringify(answers_amount));
+  addEventHandler(check_button, 'click', function() {
+    selects.forEach(function(item, i) {
+      var correct_answer = answers[i];
+      var user_answer = item.value;
 
-    for (qu in questions) {
-        questions[qu] = {};
-    }
-
-    var answers = answers_amount;
-
-    var select_options = options_amount;
-
-    for (qu in questions) {
-        questions[qu]['answer'] = false;
-    }
-
-    questions_html.on('change', 'select', function () {
-        answered = true;
-    });
-
-
-    check_button.click(function () {
-        questions_html.find('select').each(function( key, element) {
-            var correct_answer = answers[$(element).data('position')];
-            var selected_answer = $(element).find('option:selected').val();
-            questions[$(element).data('position')]['answer'] = selected_answer;
-
-            if (selected_answer) {
-                $(element).next().find('.good_icon').parent().addClass('activity_span');
-                if (correct_answer == selected_answer) {
-                    $(element).next().find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.good_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.wrong_icon').css('display','none');
-                } else {
-                    $(element).next().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).next().find('.good_icon').css('display','none');
-                }
-            }
-        });
-
-        if (answered === true) {
-            answer_button.fadeIn();
-            check_button.css('display', 'none');
-            reset_button.fadeIn();
-        }
-    });
-
-    reset_button.click(function () {
-        answered = false;
-        for (qu in questions) {
-            questions[qu]['answer'] = false;
-        }
-        $('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        questions_html.find('select').css('color', '#000').removeAttr('disabled').val('');
-
-        answer_button.hide();
-        check_button.fadeIn();
-        $(this).hide();
-    });
-
-
-    answer_button.click(function () {
-        $('.good_icon, .wrong_icon').parent().fadeOut("normal");
-
-        for (question in questions) {
-            var user_answer = questions[question]['answer'];
-            var correct_answer = answers[question];
-
-            if (user_answer) {
-                questions_html.find("[data-position='" + question + "']").val(correct_answer).css('color', '#00B050');
-
-            }
+      item.nextElementSibling.innerHTML = '';
+      if(user_answer.length > 0) {
+        if (correct_answer == user_answer) {
+          item.nextElementSibling.appendChild(addValidationIcon('good'));
+        } else {
+          item.nextElementSibling.appendChild(addValidationIcon('wrong'));
         }
 
-        questions_html.find('select').each(function( key, element) {
-            $(element).attr('disabled', 'true');
-        });
+        answer_button.style.display = 'inline-block';
+        reset_button.style.display = 'inline-block';
+        check_button.style.display = 'none';
+      }
     });
+  });
+
+  addEventHandler(reset_button, 'click', function() {
+    selects.forEach(function(item, i) {
+      item.selectedIndex = null;
+      item.nextElementSibling.innerHTML = '';
+    });
+
+    answer_button.style.display = 'none';
+    reset_button.style.display = 'none';
+    check_button.style.display = 'inline-block';
+  });
+
+  addEventHandler(answer_button, 'click', function() {
+    selects.forEach(function(item, i) {
+      var user_answer = item.value;
+
+      item.value = '';
+      item.nextElementSibling.innerHTML = '';
+
+      if(user_answer.length > 0) {
+        item.value = answers[i];
+      }
+    });
+  });
 }
 /*--Accordion select END --*/
