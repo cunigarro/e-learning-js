@@ -464,7 +464,7 @@ function create_multiple_answers (options) {
 }
 /*--Multiples_answers END --*/
 
-/*--False and true-- BEGIN */
+/*--False and true BEGIN --*/
 function create_false_true (options) {
   var questions_html = document.querySelector(options.questions_html);
   var inputs = questions_html.querySelectorAll('.js-radio-input-group');
@@ -671,8 +671,8 @@ function create_drag_drop_images(answers_options,answers_place,check_button,rese
 }
 /*--Drag and drop images--*/
 
-/*--Accordion select--*/
-function create_accordion_select (questions_html,check_button,reset_button,answer_button,answers_amount,options_amount){
+/*--Accordion select BEGIN --*/
+function create_accordion_select (questions_html,check_button,reset_button,answer_button,answers_amount,options_amount) {
     answer_button.hide();
     reset_button.hide();
     check_button.css('position','relative');
@@ -757,4 +757,4 @@ function create_accordion_select (questions_html,check_button,reset_button,answe
         });
     });
 }
-/*--Accordion select--*/
+/*--Accordion select END --*/
