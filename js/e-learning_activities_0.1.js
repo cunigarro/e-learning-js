@@ -306,7 +306,7 @@ function create_drag_drop(answers_options,answers_place,check_button,reset_butto
 /*--Drag and drop--*/
 
 /*--Multiple unique answer BEGIN --*/
-function create_multiple_unique_asnwers (options){
+function create_multiple_unique_asnwers (options) {
   var questions_html = document.querySelector(options.questions_html);
   var inputs = questions_html.querySelectorAll('.js-radio-input-group');
   var check_button = document.querySelector(options.check_button);
@@ -464,7 +464,7 @@ function create_multiple_answers (options) {
 }
 /*--Multiples_answers END --*/
 
-/*--False and true--*/
+/*--False and true-- BEGIN */
 function create_false_true (questions_html,check_button,reset_button,answer_button,answers_amount){
     answer_button.hide();
     reset_button.hide();
@@ -553,7 +553,7 @@ function create_false_true (questions_html,check_button,reset_button,answer_butt
         }
     });
 }
-/*--False and true--*/
+/*--False and true END --*/
 
 /*--Drag and drop images--*/
 function create_drag_drop_images(answers_options,answers_place,check_button,reset_button,answer_button,answers_amount){
