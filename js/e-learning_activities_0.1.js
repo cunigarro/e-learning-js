@@ -465,93 +465,70 @@ function create_multiple_answers (options) {
 /*--Multiples_answers END --*/
 
 /*--False and true-- BEGIN */
-function create_false_true (questions_html,check_button,reset_button,answer_button,answers_amount){
-    answer_button.hide();
-    reset_button.hide();
-    check_button.css('position','relative');
+function create_false_true (options) {
+  var questions_html = document.querySelector(options.questions_html);
+  var inputs = questions_html.querySelectorAll('.js-radio-input-group');
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
+  var user_answer = {};
 
-    var answered = false;
+  inputs.forEach(function(el, k) {
+    var radio = el.querySelectorAll('input');
+      el.insertAdjacentHTML('afterend', '<span></span>');
+      user_answer['question_' + k] = 0;
 
-    var questions = JSON.parse(JSON.stringify(answers_amount));
-
-    for (qu in questions) {
-        questions[qu] = {};
-    }
-
-    var answers = answers_amount;
-
-    for (qu in questions) {
-        questions[qu]['answer'] = false;
-    }
-
-    questions_html.on('click', 'input', function () {
-        answered = true;
-        var selected_option = $(this).data('option');
-        var question = questions[$(this).closest('li').data('question')];
-
-        question['answer'] = selected_option;
+      radio.forEach(function(el, i) {
+      addEventHandler(el, 'click', function() {
+        user_answer['question_' + k] = this.value;
+      });
     });
+  });
 
-
-    check_button.click(function () {
-        questions_html.find('li').each(function( key, element) {
-            var correct_answer = answers[$(element).data('question')];
-            var selected_answer = questions[$(element).data('question')]['answer'];
-            if (selected_answer) {
-                $(element).parent().find('.good_icon').parent().addClass('activity_span');
-                if (correct_answer === selected_answer) {
-                    $(element).find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).find('.good_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).find('.wrong_icon').css('display','none');
-                } else {
-                    $(element).find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).find('.good_icon').css('display','none');
-                }
-            }
-        });
-
-        if (answered === true) {
-            answer_button.fadeIn();
-            check_button.css('display', 'none');
-            reset_button.fadeIn();
-        };
-    });
-
-
-    reset_button.click(function () {
-        answered = false;
-        for (qu in questions) {
-            questions[qu]['answer'] = false;
+  addEventHandler(check_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      if(user_answer['question_' + i] != 0) {
+        if(user_answer['question_' + i] == answers[i]) {
+          item.nextSibling.appendChild(addValidationIcon('good'));
+        } else {
+          item.nextSibling.appendChild(addValidationIcon('wrong'));
         }
-        $('.good_icon, .wrong_icon').parent().fadeOut("normal");
-        questions_html.find('input').each(function( key, element) {
-            $(element).prop("checked", false).parent().css({'color':'#000','font-family':'open_sansregular'});
-        });
 
-        answer_button.hide();
-        check_button.fadeIn();
-        $(this).hide();
+        answer_button.style.display = 'inline-block';
+        reset_button.style.display = 'inline-block';
+        check_button.style.display = 'none';
+      }
+    });
+  });
+
+  addEventHandler(reset_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      user_answer['question_' + i] = 0;
+      item.nextSibling.innerHTML = '';
+      for(var k = 0; k < item.children.length; k++) {
+        item.children[k].querySelector('input').checked = false;
+      };
     });
 
+    answer_button.style.display = 'none';
+    reset_button.style.display = 'none';
+    check_button.style.display = 'inline-block';
+  });
 
-    answer_button.click(function () {
-        $('.good_icon, .wrong_icon').parent().fadeOut("normal");
+  addEventHandler(answer_button, 'click', function() {
+    inputs.forEach(function(item, i) {
+      item.nextSibling.innerHTML = '';
 
-        questions_html.find('input').each(function( key, element) {
-            $(element).parent().css({'color':'#000','font-family':'open_sansregular'});
-            $(element).prop("checked", false);
-        });
+      for(var k = 0; k < item.children.length; k++) {
+        item.children[k].querySelector('input').checked = false;
+      };
 
-        for (question in questions) {
-            var correct_answer = answers[question];
-            var user_answer = questions[question]['answer'];
-
-            if (user_answer) {
-                questions_html.find("[data-question='" + question + "']").find("[data-option='" + correct_answer + "']").prop("checked", true).parent().css({'color':'#00B050','font-family':'open_sanssemibold'});
-            }
-        }
+      if(user_answer['question_' + i] != 0) {
+        item.children[answers[i] - 1].querySelector('input').checked = true;
+      }
     });
+  });
 }
 /*--False and true END --*/
 
