@@ -1,5 +1,5 @@
 /*--Page 2 activity 1--*/
-create_multiple_choice ({
+create_multiple_choice({
   questions_html: '.questions_2_1',
   check_button: '#check_answers_2_1',
   reset_button: '#reset_answers_2_1',

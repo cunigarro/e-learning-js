@@ -1,5 +1,5 @@
 /*--Page 8 activity 1--*/
-create_drag_drop_images (
+create_drag_drop_images(
     $('.answer_options_8_1'),
     $('.answers_place_8_1'),
     $('#check_answers_8_1'),

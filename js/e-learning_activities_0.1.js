@@ -166,8 +166,47 @@ function create_select(options) {
 /*--Select END --*/
 
 /*--Drag and drop--*/
-function create_drag_drop(answers_options,answers_place,check_button,reset_button,answer_button,answers_amount){
-    var array_width = new Array();
+function create_drag_drop(options){
+  var options_html = document.querySelector(options.options_html).querySelectorAll('.box');
+  var questions_html = document.querySelector(options.questions_html).querySelectorAll('.box');
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
+
+  var moving = false;
+
+  // Drag function
+  options_html.forEach(function(item, k) {
+    addEventHandler(item, 'mousedown', function(event) {
+      moving = true;
+      // Select the item that was clicked
+      var self = event.target;
+      // Positions cursor in center of element when being dragged, as oposed to the top left
+      var itemWidth = self.offsetWidth / 2;
+      var itemHeight = self.offsetHeight / 2;
+      // Element follows mouse cursor
+      document.addEventListener('mousemove',function(e) {
+        // Only run if variable is true (this is destroyed on mouseup)
+        if(moving === true){
+          // Postion element, minus half width/height as above
+          var x = e.clientX - itemWidth;
+          var y = e.clientY - itemHeight;
+
+          // Store left, top, and z-index in variable
+          var position = 'left:' + x + 'px;top:' + y + 'px;cursor:move;position:fixed;';
+          // Set style
+          self.setAttribute('style', position);
+        };
+      });
+    });
+    addEventHandler(item, 'mouseup', function(event) {
+      moving = false;
+    });
+  });
+
+    /* Options: answers_options,answers_place,check_button,reset_button,answer_button,answers_amount */
+    /* var array_width = new Array();
     var array_height = new Array();
     $(".box").each(function(index) {
         array_width.push($(this).innerWidth());
@@ -301,7 +340,7 @@ function create_drag_drop(answers_options,answers_place,check_button,reset_butto
         }
 
         answers_place.find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-    });
+    }); */
 }
 /*--Drag and drop--*/
 

@@ -149,6 +149,16 @@
     margin: 0 auto;
     padding: 4px 7px 1px;
     text-align: center;
+    width: 85px;
+    height: 24px;
+}
+.box.answer_par {
+    background: #ffc742;
+    color: #333333;
+    cursor: pointer;
+    width: 85px;
+    height: 24px;
+    position: relative;
 }
 .box_img{
 	margin: 0 auto;
