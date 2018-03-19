@@ -42,15 +42,6 @@ You can modify all styles about activities. Next I'm going to create themes to a
   <li>
     ¿Question three?: <input type="text">
   </li>
-  <li>
-    ¿Question four?: <input type="text">
-  </li>
-  <li>
-    ¿Question five?: <input type="text">
-  </li>
-  <li>
-    ¿Question six?: <input type="text">
-  </li>
 </ul>
 
 <button class="check-answers-button-selector">
@@ -75,11 +66,105 @@ create_multiple_choice({
   // Multiples options of answer for each question
   answers: [
     ['answer-1-1', 'answer-1-2', 'answer-1-3'],
-    ['answer-2-1', 'answer-2-2', 'answer-2-3'],
-    ['answer-3-1', 'answer-3-2', 'answer-3-3'],
-    ['answer-4-1', 'answer-4-2'],
-    ['answer-5-1', 'answer-5-2'],
-    ['answer-6-1', 'answer-6-2'],
+    ['answer-2-1', 'answer-2-2'],
+    ['answer-3-1', 'answer-3-2']
   ]
+});
+```
+
+<h3>Select</h3>
+
+```html
+<ul class="questions-container-selector">
+  <li class='js-select-input' data-question='1'>
+      <div data-answer='1'>A</div>
+      <div data-answer='2'>B</div>
+      <div data-answer='3'>C</div>
+      <div data-answer='4'>D</div>
+  </li>
+  <li class='js-select-input' data-question='2'>
+      <div data-answer='1'>E</div>
+      <div data-answer='2'>F</div>
+      <div data-answer='3'>G</div>
+      <div data-answer='4'>H</div>
+  </li>
+  <li class='js-select-input' data-question='3'>
+      <div data-answer='1'>I</div>
+      <div data-answer='2'>J</div>
+      <div data-answer='3'>K</div>
+      <div data-answer='4'>L</div>
+  </li>
+</ul>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
+```
+
+```javascript
+create_select({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [3, 4, 2]
+});
+```
+
+<h3>Drag and drop</h3>
+
+```html
+<ul class="questions-container-selector">
+  <li>No han cambiado los cimientos, solo hay</li>
+  <li>parches grises acá donde daba el <span data-question="1" class="box"></span>.</li>
+  <li>La casa se ve más pesada</li>
+  <li>ahora se han ido.</li>
+  <li>De hecho fue vaciada en tiempo <span data-question="2" class="box"></span>.</li>
+  <li>Allí donde la mesa plana terminaba.</li>
+  <li>un fósforo se extingue, lentamente, hacia la noche.</li>
+  <li>un fósforo se extingue, lentamente <span data-question="3" class="box"></span></li>
+</ul>
+
+<ul class="answers-container-selector">
+  <li class="box_answer_content">
+    <div class="box answer_par" data-option="1">mes</div>
+  </li>
+  <li class="box_answer_content">
+    <div class="box answer_par" data-option="2">ping-pong</div>
+  </li>
+  <li class="box_answer_content">
+    <div class="box answer_par" data-option="4">puertas</div>
+  </li>
+</ul>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
+```
+
+```javascript
+create_drag_drop({
+  options_html: '.questions-container-selector',
+  questions_html: '.answers-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [2, 1, 3]
 });
 ```
