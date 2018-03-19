@@ -20,3 +20,66 @@ These are the following activities:
   <li><strong>Drag and drop images</strong></li>
   <li><strong>Accordion select</strong></li>
 </ol>
+
+<h2>Usage:</h2>
+
+You need to copy the html for each activity and add javascript parameters for each of one. For custom configuration you have to follow the html structure.
+
+Copy the file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/develop/js/e-learning_activities_0.1.js) inside the body tag before close it.
+
+You can modify all styles about activities. Next I'm going to create themes to add ui design. Use basic html and javascript code to generate activity.
+
+<h3>Multiple choice</h3>
+
+```html
+<ul class="questions-container-selector">
+  <li>
+    ¿Question one?: <input type="text">
+  </li>
+  <li>
+    ¿Question two?: <input type="text">
+  </li>
+  <li>
+    ¿Question three?: <input type="text">
+  </li>
+  <li>
+    ¿Question four?: <input type="text">
+  </li>
+  <li>
+    ¿Question five?: <input type="text">
+  </li>
+  <li>
+    ¿Question six?: <input type="text">
+  </li>
+</ul>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
+```
+
+```javascript
+create_multiple_choice({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  // Multiples options of answer for each question
+  answers: [
+    ['answer-1-1', 'answer-1-2', 'answer-1-3'],
+    ['answer-2-1', 'answer-2-2', 'answer-2-3'],
+    ['answer-3-1', 'answer-3-2', 'answer-3-3'],
+    ['answer-4-1', 'answer-4-2'],
+    ['answer-5-1', 'answer-5-2'],
+    ['answer-6-1', 'answer-6-2'],
+  ]
+});
+```
