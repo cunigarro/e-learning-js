@@ -486,144 +486,100 @@ function create_false_true (options) {
 }
 /*--False and true END --*/
 
-/*--Drag and drop images--*/
-function create_drag_drop_images(answers_options,answers_place,check_button,reset_button,answer_button,answers_amount){
-    var array_width = new Array();
-    var array_height = new Array();
-    $(".box_img").each(function(index) {
-        array_width.push($(this).innerWidth());
-        array_height.push($(this).innerHeight());
-        if($(this).html().length > 1){
-            $(this).css('cursor','pointer');
-        }else{
-            $(this).html("&nbsp;");
-        }
-    });
-    $(".box").css('width',Math.max.apply(Math,array_width));
-    $(".box").css('height',Math.max.apply(Math,array_height));
+/*--Drag and drop images BEGIN --*/
+function create_drag_drop_images(options){
+  var options_html;
+  var questions_html;
+  var check_button = document.querySelector(options.check_button);
+  var reset_button = document.querySelector(options.reset_button);
+  var answer_button = document.querySelector(options.answer_button);
+  var answers = options.answers;
+  var options_html_content = [];
+  var currentlyDragging = null;
+  window['selected'] = [];
 
-    $("body").droppable({
-        drop: function(event, ui) {
-            $(ui.draggable).css("left",0);
-            $(ui.draggable).css("top",0);
-        }
-    });
+  function activateDragAndDrop() {
+    options_html = document.querySelector(options.options_html).querySelectorAll('.box_img');
+    questions_html = document.querySelector(options.questions_html).querySelectorAll('.box_img');
 
-    answer_button.hide();
-    reset_button.hide();
-    check_button.css('position','relative');
-
-    answers_options.find('.answer_par').each(function( key, element) {
-        $(element).draggable();
+    options_html.forEach(function(item, k) {
+      options_html_content[k] = options_html[k].parentNode.innerHTML;
+      item.setAttribute( 'draggable', true );
+      item.ondragstart = function( ev ) {
+        ev.dataTransfer.effectAllowed = 'move';
+        ev.dataTransfer.setData( 'text/html', this.innerHTML )
+        currentlyDragging = ev.target.parentNode;
+      }
     });
 
-    var answered = false;
+    questions_html.forEach(function(item, k) {
+      item.ondragenter = item.ondragover = function( ev ) {
+        ev.preventDefault();
+      };
 
-    var questions = JSON.parse(JSON.stringify(answers_amount));
-
-    for (qu in questions) {
-        questions[qu] = {};
-    }
-
-    var answers = answers_amount;
-
-    for (qu in questions) {
-        questions[qu]['answer'] = 0;
-    }
-
-    answers_place.find('.box_img').each(function( key, element) {
-        $(element).droppable({
-            accept: ".answer_options_8_1 .answer_par",
-            drop: function(event, ui) {
-                $(this).css("background-color","#FFC742");
-                $(this).css("color","#333");
-                $(this).html($(ui.draggable).html());
-                $(ui.draggable).css("left",0);
-                $(ui.draggable).css("top",0);
-                $(ui.draggable).css("visibility","hidden");
-                $(this).css("opacity",1);
-                $(this).droppable( "disable");
-                $(ui.draggable).draggable("disable");
-
-                answered = true;
-                var correct_answer = answers[$(this).droppable().data('question')];
-                var selected_answer = $(ui.draggable).data('option');
-
-                var question = questions[$(this).droppable().data('question')];
-                question['answer'] = selected_answer;
-            }
-        });
+      item.ondrop = function(ev) {
+        ev.preventDefault();
+        item.appendChild(currentlyDragging);
+        selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
+        currentlyDragging = null;
+      };
     });
+  }
 
-    check_button.click(function () {
-        answers_place.find('.box_img').each(function( key, element) {
-            var correct_answer = answers[$(element).data('question')];
-            var selected_answer = questions[$(element).data('question')]['answer'];
+  activateDragAndDrop();
 
-            if (selected_answer) {
-                $(element).parent().find('.good_icon').parent().addClass('activity_span');
-                if (correct_answer == selected_answer) {
-                    $(element).parent().find('.good_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).parent().find('.good_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).parent().find('.wrong_icon').css('display','none');
-                } else {
-                    $(element).parent().find('.wrong_icon').parent().fadeIn('normal').css("display","inline-block");
-                    $(element).parent().find('.wrong_icon').fadeIn('normal').css("display","inline-block");
-                    $(element).parent().find('.good_icon').css('display','none');
-                }
-            }
-        });
+  questions_html.forEach(function(item, i) {
+    window['selected'].push(0);
+    item.insertAdjacentHTML('afterend', '<span></span>');
+  });
 
-        if(answered){
-            answer_button.fadeIn();
-            check_button.css('display', 'none');
-            reset_button.fadeIn();
-
-            answers_options.find('.answer_par').each(function( key, element) {
-                $(element).draggable("disable");
-            });
-        }
-    });
-
-    reset_button.click(function () {
-        answered = false;
-        for (qu in questions) {
-            questions[qu]['answer'] = 0;
-        }
-        answers_place.parent().find('.good_icon, .wrong_icon').parent().fadeOut("normal");
-
-        answers_options.find('.answer_par').each(function( key, element) {
-            $(element).css("visibility","visible");
-            $(element).draggable("enable");
-        });
-
-        answers_place.find('.box_img').each(function( key, element) {
-            $(element).css("background-color","#DDD");
-            $(element).html("&nbsp;");
-            $(element).css("border","none");
-            $(element).droppable("enable");
-        });
-
-        answer_button.hide();
-        check_button.fadeIn();
-        $(this).hide();
-    });
-
-    answer_button.click(function () {
-        for (question in questions) {
-            var correct_answer = answers[question];
-            var user_answer = questions[question]['answer'];
-            var answer_img = answers_options.find("[data-option='" + correct_answer + "']").html();
-
-            if (user_answer) {
-                answers_place.find("[data-question='" + question + "']").css("border","3px solid #00ca5c").html(answer_img);
-            }
+  addEventHandler(check_button, 'click', function() {
+    questions_html.forEach(function(item, i) {
+      if(selected[i] != 0) {
+        if(selected[i] == answers[i]) {
+          item.nextSibling.appendChild(addValidationIcon('good'));
+        } else {
+          item.nextSibling.appendChild(addValidationIcon('wrong'));
         }
 
-        answers_place.parent().find('.good_icon, .wrong_icon').parent().fadeOut("normal");
+        answer_button.style.display = 'inline-block';
+        reset_button.style.display = 'inline-block';
+        check_button.style.display = 'none';
+      }
     });
+  });
+
+  addEventHandler(reset_button, 'click', function() {
+    questions_html.forEach(function(item, i) {
+      selected[i] = 0;
+      item.innerHTML = '';
+      item.nextSibling.innerHTML = '';
+    });
+
+    options_html.forEach(function(item, i) {
+      document.querySelectorAll('.box_answer_content')[i].innerHTML = options_html_content[i];
+    });
+
+    activateDragAndDrop();
+
+    answer_button.style.display = 'none';
+    reset_button.style.display = 'none';
+    check_button.style.display = 'inline-block';
+  });
+
+  addEventHandler(answer_button, 'click', function() {
+    questions_html.forEach(function(item, i) {
+      selected[i] = 0;
+      item.innerHTML = options_html_content[answers[i] - 1];
+      item.nextSibling.innerHTML = '';
+    });
+
+    options_html.forEach(function(item, i) {
+      document.querySelectorAll('.box_answer_content')[i].innerHTML = '';
+    });
+  });
 }
-/*--Drag and drop images--*/
+/*--Drag and drop images END --*/
 
 /*--Accordion select BEGIN --*/
 function create_accordion_select(options) {
