@@ -280,19 +280,19 @@ create_multiple_answers({
 ```html
 <ul class="questions-container-selector">
   <li data-question="1" class="js-radio-input-group">
-    Oración número uno.
-    <span><input type="radio" value="1" data-option="option_1" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="fa"></i></label> (T)</span>&nbsp;
-    <span><input  type="radio" value="2" data-option="option_2" name="option_1" autocomplete="off"/><label for="option_1_2"><i class="fa"></i></label> (F)</span>
+    Question 1:
+    <span><input type="radio" value="1" data-option="option_1" name="option_1"/><label for="option_1_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input  type="radio" value="2" data-option="option_2" name="option_1"/><label for="option_1_2"><i class="fa"></i></label> (F)</span>
   </li>
   <li data-question="2" class="js-radio-input-group">
-    Oración número uno.
-    <span><input type="radio" value="1" data-option="option_1" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="fa"></i></label> (T)</span>&nbsp;
-    <span><input type="radio" value="2" data-option="option_2" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="fa"></i></label> (F)</span>
+    Question 2:
+    <span><input type="radio" value="1" data-option="option_1" name="option_2"/><label for="option_2_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input type="radio" value="2" data-option="option_2" name="option_2"/><label for="option_2_1"><i class="fa"></i></label> (F)</span>
   </li>
   <li data-question="3" class="js-radio-input-group">
-    Oración número tres.
-    <span><input type="radio" value="1" data-option="option_1" name="option_3" autocomplete="off"/><label for="option_3_1"><i class="fa"></i></label> (T)</span>&nbsp;
-    <span><input type="radio" value="2" data-option="option_2" name="option_3" autocomplete="off"/><label for="option_3_2"><i class="fa"></i></label> (F)</span>
+    Question 3:
+    <span><input type="radio" value="1" data-option="option_1" name="option_3"/><label for="option_3_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input type="radio" value="2" data-option="option_2" name="option_3"/><label for="option_3_2"><i class="fa"></i></label> (F)</span>
   </li>
 </ul>
 ```
@@ -320,9 +320,44 @@ create_false_true({
 <h3>Accordion select</h3>
 
 ```html
-
+<ul class="questions-container-selector">
+  <li>Lorem ipsum dolor sit amet, consectetur adipiscing
+  <select class="input_select">
+    <option value="" selected></option>
+    <option value="1">elit</option>
+    <option value="2">justo</option>
+    <option value="3">nisi</option>
+  </select>
+  .</li>
+  <li>
+    Praesent nisi quam, maximus non dui vel, venenatis rhoncus
+    <select class="input_select">
+      <option value="" selected></option>
+      <option value="1">elit</option>
+      <option value="2">justo</option>
+      <option value="3">nisi</option>
+    </select>
+    .
+  </li>
+  <li>
+    Curabitur a tristique
+    <select class="input_select">
+      <option value="" selected></option>
+      <option value="1">elit</option>
+      <option value="2">justo</option>
+      <option value="3">nisi</option>
+    </select>
+    .
+  </li>
+</ul>
 ```
 
 ```javascript
-
+create_accordion_select({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [2, 1, 3]
+});
 ```
