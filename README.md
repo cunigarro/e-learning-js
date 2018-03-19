@@ -295,6 +295,18 @@ create_multiple_answers({
     <span><input type="radio" value="2" data-option="option_2" name="option_3"/><label for="option_3_2"><i class="fa"></i></label> (F)</span>
   </li>
 </ul>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
 ```
 
 ```javascript
@@ -310,11 +322,67 @@ create_false_true({
 <h3>Drag and drop images</h3>
 
 ```html
+<table class="questions-container-selector">
+  <tr>
+    <th colspan="2">Colocar imágenes</th>
+  </tr>
+  <tr>
+    <td class="center"><span data-question="1" class="box_img"></span></td>
+    <td class="center"><span data-question="2" class="box_img"></span></td>
+  </tr>
+  <tr>
+    <td class="center"><span data-question="3" class="box_img"></span></td>
+  </tr>
+</table>
 
+<table class="answers-container-selector">
+  <tr>
+    <th colspan="2">Images list:</th>
+  </tr>
+
+  <tr>
+    <td class="box_answer_content">
+      <div data-option="1" class="box_img answer_par">
+        <img src="http://lorempixel.com/200/200" alt="">
+      </div>
+    </td>
+    <td class="box_answer_content">
+      <div data-option="2" class="box_img answer_par">
+        <img src="http://lorempixel.com/200/200" alt="">
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td class="box_answer_content">
+      <div data-option="3" class="box_img answer_par">
+        <img src="http://lorempixel.com/200/200" alt="">
+      </div>
+    </td>
+  </tr>
+</table>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
 ```
 
 ```javascript
-
+create_drag_drop_images({
+  options_html: '.questions-container-selector',
+  questions_html: '.answers-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [1, 3, 2]
+});
 ```
 
 <h3>Accordion select</h3>
@@ -354,7 +422,8 @@ create_false_true({
 
 ```javascript
 create_accordion_select({
-  questions_html: '.questions-container-selector',
+  options_html: '.questions-container-selector',
+  questions_html: '.answers-container-selector',
   check_button: '.check-answers-button-selector',
   reset_button: '.reset-answers-button-selector',
   answer_button: '.answer-answers-button-selector',
