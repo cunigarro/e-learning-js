@@ -123,25 +123,20 @@ create_select({
 
 ```html
 <ul class="questions-container-selector">
-  <li>No han cambiado los cimientos, solo hay</li>
-  <li>parches grises acá donde daba el <span data-question="1" class="box"></span>.</li>
-  <li>La casa se ve más pesada</li>
-  <li>ahora se han ido.</li>
-  <li>De hecho fue vaciada en tiempo <span data-question="2" class="box"></span>.</li>
-  <li>Allí donde la mesa plana terminaba.</li>
-  <li>un fósforo se extingue, lentamente, hacia la noche.</li>
-  <li>un fósforo se extingue, lentamente <span data-question="3" class="box"></span></li>
+  <li>Lorem ipsum dolor sit amet, consectetur adipiscing <span data-question="1" class="box"></span>.</li>
+  <li>Ut pharetra nisl et lectus pretium <span data-question="2" class="box"></span>.</li>
+  <li>Nunc sollicitudin eros vel eros tristique <span data-question="3" class="box"></span>.</li>
 </ul>
 
 <ul class="answers-container-selector">
   <li class="box_answer_content">
-    <div class="box answer_par" data-option="1">mes</div>
+    <div class="box answer_par" data-option="1">rutrum</div>
   </li>
   <li class="box_answer_content">
-    <div class="box answer_par" data-option="2">ping-pong</div>
+    <div class="box answer_par" data-option="2">elit</div>
   </li>
   <li class="box_answer_content">
-    <div class="box answer_par" data-option="4">puertas</div>
+    <div class="box answer_par" data-option="4">venenatis</div>
   </li>
 </ul>
 
