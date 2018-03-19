@@ -163,3 +163,166 @@ create_drag_drop({
   answers: [2, 1, 3]
 });
 ```
+
+<h3>Multiple unique answer</h3>
+
+```html
+<ol class="word_list questions-container-selector">
+  <li>Question 1:
+    <ol data-question="1" class="no_list js-radio-input-group">
+      <li><input data-option="option_1" value="1" type="radio" name="option_1"/><label for="option_1_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input data-option="option_2" value="2" type="radio" name="option_1"/><label for="option_1_1"><i class="fa"></i></label> Answer option 2</li>
+      <li><input data-option="option_3" value="3" type="radio" name="option_1"/><label for="option_1_1"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input data-option="option_4" value="4" type="radio" name="option_1"/><label for="option_1_1"><i class="fa"></i></label> Answer option 4.</li>
+    </ol>
+  </li>
+  <li>Question 2:
+    <ol data-question="2" class="no_list js-radio-input-group">
+      <li><input data-option="option_1" value="1" type="radio" name="option_2"/><label for="option_2_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input data-option="option_2" value="2" type="radio" name="option_2"/><label for="option_2_2"><i class="fa"></i></label> Answer option 2.</li>
+      <li><input data-option="option_3" value="3" type="radio" name="option_2"/><label for="option_2_3"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input data-option="option_4" value="4" type="radio" name="option_2"/><label for="option_2_4"><i class="fa"></i></label> Answer option 4.</li>
+    </ol>
+  </li>
+  <li>Question 3:
+    <ol data-question="3" class="no_list js-radio-input-group">
+      <li><input data-option="option_1" value="1" type="radio" name="option_3"/><label for="option_3_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input data-option="option_2" value="2" type="radio" name="option_3"/><label for="option_3_2"><i class="fa"></i></label> Answer option 2.</li>
+      <li><input data-option="option_3" value="3" type="radio" name="option_3"/><label for="option_3_3"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input data-option="option_4" value="4" type="radio" name="option_3"/><label for="option_3_4"><i class="fa"></i></label> Answer option 4.</li>
+    </ol>
+  </li>
+</ol>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
+```
+
+```javascript
+create_multiple_unique_asnwers({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [1, 2, 4]
+});
+```
+
+<h3>Multiples answers</h3>
+
+```html
+<ol class="questions-container-selector">
+  <li class="question_text" data-question="1">Question 1:
+    <ol class="no_list js-checkbox-input-group">
+      <li><input type="checkbox" value="1" data-option="option_1"/><label for="option_1_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input type="checkbox" value="2" data-option="option_2"/><label for="option_1_2"><i class="fa"></i></label> Answer option 2.</li>
+      <li><input type="checkbox" value="3" data-option="option_3"/><label for="option_1_3"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input type="checkbox" value="4" data-option="option_4"/><label for="option_1_4"><i class="fa"></i></label> Answer option 4.</li>
+      <li><input type="checkbox" value="5" data-option="option_5"/><label for="option_1_5"><i class="fa"></i></label> Answer option 5.</li>
+    </ol>
+  </li>
+  <li class="question_text" data-question="2">Question 2:
+    <ol class="no_list js-checkbox-input-group">
+      <li><input type="checkbox" value="1" data-option="option_1"/><label for="option_2_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input type="checkbox" value="2" data-option="option_2"/><label for="option_2_2"><i class="fa"></i></label> Answer option 2.</li>
+      <li><input type="checkbox" value="3" data-option="option_3"/><label for="option_2_3"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input type="checkbox" value="4" data-option="option_4"/><label for="option_2_4"><i class="fa"></i></label> Answer option 4.</li>
+    </ol>
+  </li>
+  <li class="question_text" data-question="3">Question 3:
+    <ol class="no_list js-checkbox-input-group">
+      <li><input type="checkbox" value="1" data-option="option_1"/><label for="option_3_1"><i class="fa"></i></label> Answer option 1.</li>
+      <li><input type="checkbox" value="2" data-option="option_2"/><label for="option_3_2"><i class="fa"></i></label> Answer option 2.</li>
+      <li><input type="checkbox" value="3" data-option="option_3"/><label for="option_3_3"><i class="fa"></i></label> Answer option 3.</li>
+      <li><input type="checkbox" value="4" data-option="option_4"/><label for="option_3_4"><i class="fa"></i></label> Answer option 4.</li>
+    </ol>
+  </li>
+</ol>
+
+<button class="check-answers-button-selector">
+  Check
+</button>
+
+<button class="reset-answers-button-selector">
+  Reset
+</button>
+
+<button class="answer-answers-button-selector">
+  Answers
+</button>
+```
+
+```javascript
+create_multiple_answers({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [
+    [1, 3, 4, 5],
+    [3, 4],
+    [1, 3, 4]
+  ]
+});
+```
+
+<h3>False and True</h3>
+
+```html
+<ul class="questions-container-selector">
+  <li data-question="1" class="js-radio-input-group">
+    Oración número uno.
+    <span><input type="radio" value="1" data-option="option_1" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input  type="radio" value="2" data-option="option_2" name="option_1" autocomplete="off"/><label for="option_1_2"><i class="fa"></i></label> (F)</span>
+  </li>
+  <li data-question="2" class="js-radio-input-group">
+    Oración número uno.
+    <span><input type="radio" value="1" data-option="option_1" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input type="radio" value="2" data-option="option_2" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="fa"></i></label> (F)</span>
+  </li>
+  <li data-question="3" class="js-radio-input-group">
+    Oración número tres.
+    <span><input type="radio" value="1" data-option="option_1" name="option_3" autocomplete="off"/><label for="option_3_1"><i class="fa"></i></label> (T)</span>&nbsp;
+    <span><input type="radio" value="2" data-option="option_2" name="option_3" autocomplete="off"/><label for="option_3_2"><i class="fa"></i></label> (F)</span>
+  </li>
+</ul>
+```
+
+```javascript
+create_false_true({
+  questions_html: '.questions-container-selector',
+  check_button: '.check-answers-button-selector',
+  reset_button: '.reset-answers-button-selector',
+  answer_button: '.answer-answers-button-selector',
+  answers: [1, 2, 1, 1]
+});
+```
+
+<h3>Drag and drop images</h3>
+
+```html
+
+```
+
+```javascript
+
+```
+
+<h3>Accordion select</h3>
+
+```html
+
+```
+
+```javascript
+
+```
