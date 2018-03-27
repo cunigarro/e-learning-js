@@ -14,9 +14,11 @@ function addValidationIcon(result) {
   icon.style.marginLeft = '10px';
   icon.style.marginRight = '10px';
   if(result == 'good') {
-    icon.classList.add('good_icon', 'fa', 'fa-check-circle');
+    icon.classList.add('good_icon');
+    icon.innerHTML = '&#10004;'
   } else if(result == 'wrong') {
-    icon.classList.add('wrong_icon', 'fa', 'fa-times-circle');
+    icon.classList.add('wrong_icon');
+    icon.innerHTML = '&times;';
   }
 
   fragment.appendChild(icon);
