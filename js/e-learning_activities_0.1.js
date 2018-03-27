@@ -86,19 +86,19 @@ function create_multiple_choice(options) {
 /*--Select BEGIN --*/
 function create_select(options) {
   var questions_html = document.querySelector(options.questions_html);
-  var inputs = questions_html.querySelectorAll('.js-select-input');
+  var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
   var answer_button = document.querySelector(options.answer_button);
   var answers = options.answers;
-  window['selected'] = [];
+  var selected = [];
 
   inputs.forEach(function(item, i) {
-    var options = item.querySelectorAll('div');
+    var options = item.querySelectorAll('[data-option]');
     var question = '';
     var answer = '';
 
-    window['selected'].push({
+    selected.push({
       question: i + 1,
       answer: 0
     });
@@ -106,7 +106,7 @@ function create_select(options) {
     options.forEach(function(item, k) {
       addEventHandler(item, 'click', function() {
         question = this.parentNode.getAttribute('data-question');
-        answer = this.getAttribute('data-answer');
+        answer = this.getAttribute('data-option');
 
         Array.prototype.map.call(options, function(el) {
           el.classList.remove('selected');
@@ -175,7 +175,7 @@ function create_drag_drop(options){
   var answers = options.answers;
   var options_html_content = [];
   var currentlyDragging = null;
-  window['selected'] = [];
+  selected = [];
 
   function activateDragAndDrop() {
     options_html = document.querySelector(options.options_html).querySelectorAll('.box');
@@ -207,7 +207,7 @@ function create_drag_drop(options){
   activateDragAndDrop();
 
   questions_html.forEach(function(item, i) {
-    window['selected'].push(0);
+    selected.push(0);
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 
@@ -262,7 +262,7 @@ function create_drag_drop(options){
 /*--Multiple unique answer BEGIN --*/
 function create_multiple_unique_asnwers (options) {
   var questions_html = document.querySelector(options.questions_html);
-  var inputs = questions_html.querySelectorAll('.js-radio-input-group');
+  var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
   var answer_button = document.querySelector(options.answer_button);
@@ -330,7 +330,7 @@ function create_multiple_unique_asnwers (options) {
 /*--Multiples_answers BEGIN --*/
 function create_multiple_answers (options) {
   var questions_html = document.querySelector(options.questions_html);
-  var inputs = questions_html.querySelectorAll('.js-checkbox-input-group');
+  var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
   var answer_button = document.querySelector(options.answer_button);
@@ -421,7 +421,7 @@ function create_multiple_answers (options) {
 /*--False and true BEGIN --*/
 function create_false_true (options) {
   var questions_html = document.querySelector(options.questions_html);
-  var inputs = questions_html.querySelectorAll('.js-radio-input-group');
+  var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
   var reset_button = document.querySelector(options.reset_button);
   var answer_button = document.querySelector(options.answer_button);
@@ -496,7 +496,7 @@ function create_drag_drop_images(options){
   var answers = options.answers;
   var options_html_content = [];
   var currentlyDragging = null;
-  window['selected'] = [];
+  selected = [];
 
   function activateDragAndDrop() {
     options_html = document.querySelector(options.options_html).querySelectorAll('.box_img');
@@ -529,7 +529,7 @@ function create_drag_drop_images(options){
   activateDragAndDrop();
 
   questions_html.forEach(function(item, i) {
-    window['selected'].push(0);
+    selected.push(0);
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 
