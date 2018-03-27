@@ -23,11 +23,9 @@ These are the following activities:
 
 <h2>Usage:</h2>
 
-You need to copy the html for each activity and add javascript parameters for each of one. For custom configuration you have to follow the html structure.
+You need to follow the next html structure for each activity and add javascript parameters for each of one.
 
-Copy the file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/develop/js/e-learning_activities_0.1.js) inside the body tag before close it.
-
-You can modify all styles about activities. Next I'm going to create themes to add ui design. Use basic html and javascript code to generate activity.
+Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/develop/css/e-learning_activities_0.1.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/develop/js/e-learning_activities_0.1.js) inside the body tag before close it.
 
 <h3>Multiple choice</h3>
 
