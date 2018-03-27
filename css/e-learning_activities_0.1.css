@@ -24,7 +24,8 @@
 	margin-right: 5px;
 	position: relative;
 	background-color: #00B3B8;
-	font-size: 14px;
+    font-size: 14px;
+    display: inline-block;
 }
 .btn_activities div:first-child:hover{
 	background-color: #00B3B8;
@@ -41,7 +42,7 @@
 }
 .btn_activities div:nth-child(2){
 	width: 76px;
-	display: inline-block;
+	display: none;
 	margin-right: 5px;
 	position: relative;
 	background-color: #3498DB;
@@ -60,7 +61,7 @@
 .btn_activities div:last-child{
 	position: relative;
 	width: 94px;
-	display: inline-block;
+	display: none;
 	margin-right: 5px;
 	text-align: center;
 	background-color: #4CAE4C;
@@ -95,13 +96,11 @@
 }
 .wrong_icon{
 	display: none;
-	font-size: 25px;
-	position: absolute;
+	font-size: 35px;
 	color: #E74C3C;
 }.good_icon{
 	display: none;
-	font-size: 25px;
-	position: absolute;
+	font-size: 22px;
 	color: #4CAE4C;
 }
 
@@ -148,8 +147,17 @@
     cursor: default;
     display: inline-block;
     margin: 0 auto;
-    padding: 4px 7px 1px;
     text-align: center;
+    width: 85px;
+    height: 24px;
+}
+.box.answer_par {
+    background: #ffc742;
+    color: #333333;
+    cursor: pointer;
+    width: 85px;
+    height: 24px;
+    position: relative;
 }
 .box_img{
 	margin: 0 auto;
