@@ -1,6 +1,5 @@
-
-/*--False and true BEGIN --*/
-const createFalseAndTrue = (options) => {
+/*--Multiple unique answer BEGIN --*/
+const createMultipleUniqueAnswers = (options) => {
   var questions_html = document.querySelector(options.questions_html);
   var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
@@ -11,10 +10,10 @@ const createFalseAndTrue = (options) => {
 
   inputs.forEach(function(el, k) {
     var radio = el.querySelectorAll('input');
-      el.insertAdjacentHTML('afterend', '<span></span>');
-      user_answer['question_' + k] = 0;
+    el.insertAdjacentHTML('afterend', '<span></span>');
+    user_answer['question_' + k] = 0;
 
-      radio.forEach(function(el, i) {
+    radio.forEach(function(el, i) {
       addEventHandler(el, 'click', function() {
         user_answer['question_' + k] = this.value;
       });
@@ -65,6 +64,6 @@ const createFalseAndTrue = (options) => {
     });
   });
 }
-/*--False and true END --*/
+/*--Multiple unique answer END --*/
 
-export default createFalseAndTrue;
+export default createMultipleUniqueAnswers;

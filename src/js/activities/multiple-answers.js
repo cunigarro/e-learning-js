@@ -1,6 +1,5 @@
-
-/*--False and true BEGIN --*/
-const createFalseAndTrue = (options) => {
+/*--Multiples_answers BEGIN --*/
+const createMultipleAnswers = (options) => {
   var questions_html = document.querySelector(options.questions_html);
   var inputs = questions_html.querySelectorAll('[data-question]');
   var check_button = document.querySelector(options.check_button);
@@ -10,21 +9,42 @@ const createFalseAndTrue = (options) => {
   var user_answer = {};
 
   inputs.forEach(function(el, k) {
-    var radio = el.querySelectorAll('input');
-      el.insertAdjacentHTML('afterend', '<span></span>');
-      user_answer['question_' + k] = 0;
+    var checkbox = el.querySelectorAll('input');
+    el.insertAdjacentHTML('afterend', '<span></span>');
+    user_answer['question_' + k] = [];
 
-      radio.forEach(function(el, i) {
+    checkbox.forEach(function(el, i) {
+      var index;
       addEventHandler(el, 'click', function() {
-        user_answer['question_' + k] = this.value;
+        if(this.checked) {
+          user_answer['question_' + k].push(i + 1);
+        } else {
+          index = user_answer['question_' + k].indexOf(i + 1);
+
+          if (index > -1) {
+            user_answer['question_' + k].splice(index, 1);
+          }
+        }
       });
     });
   });
 
   addEventHandler(check_button, 'click', function() {
     inputs.forEach(function(item, i) {
-      if(user_answer['question_' + i] != 0) {
-        if(user_answer['question_' + i] == answers[i]) {
+      var evaluation = false;
+
+      if(user_answer['question_' + i].length) {
+
+        for(var k = 0; k < answers[i].length; k++) {
+          if(user_answer['question_' + i].indexOf(answers[i][k]) != -1) {
+            evaluation = true
+          } else {
+            evaluation = false;
+            break;
+          };
+        }
+
+        if(evaluation) {
           item.nextSibling.appendChild(addValidationIcon('good'));
         } else {
           item.nextSibling.appendChild(addValidationIcon('wrong'));
@@ -39,7 +59,7 @@ const createFalseAndTrue = (options) => {
 
   addEventHandler(reset_button, 'click', function() {
     inputs.forEach(function(item, i) {
-      user_answer['question_' + i] = 0;
+      user_answer['question_' + i] = [];
       item.nextSibling.innerHTML = '';
       for(var k = 0; k < item.children.length; k++) {
         item.children[k].querySelector('input').checked = false;
@@ -59,12 +79,14 @@ const createFalseAndTrue = (options) => {
         item.children[k].querySelector('input').checked = false;
       };
 
-      if(user_answer['question_' + i] != 0) {
-        item.children[answers[i] - 1].querySelector('input').checked = true;
+      if(user_answer['question_' + i].length) {
+        for(var k = 0; k < answers[i].length; k++) {
+          item.children[answers[i][k] - 1].querySelector('input').checked = true;
+        }
       }
     });
   });
 }
-/*--False and true END --*/
+/*--Multiples_answers END --*/
 
-export default createFalseAndTrue;
+export default createMultipleAnswers;
