@@ -21,6 +21,34 @@ These are the following activities:
   <li><strong>Accordion select</strong></li>
 </ol>
 
+<h2>Installation:</h2>
+
+<h3>Npm:</h3>
+
+```html
+npm install e-learning-js --save-dev
+```
+
+<h2>Module:</h2>
+
+<h3>Common js:</h3>
+
+```html
+require('e-learning-js');
+```
+
+<h3>Import ES6:</h3>
+
+```html
+import 'e-learning-js';
+```
+
+<h3>Import SASS:</h3>
+
+```html
+@import '~e-learning-js/scss/e-learning';
+```
+
 <h2>Usage:</h2>
 
 You need to follow the next html structure for each activity and add javascript parameters for each of one.
