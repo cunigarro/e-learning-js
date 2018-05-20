@@ -46,7 +46,7 @@ import 'e-learning-js';
 <h3>Import SASS:</h3>
 
 ```scss
-@import '~e-learning-js/scss/e-learning';
+@import '~e-learning-js/src/scss/e-learning';
 ```
 
 <h2>Usage:</h2>
