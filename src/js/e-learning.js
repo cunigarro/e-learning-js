@@ -11,3 +11,6 @@ import createMultipleAnswers from './activities/multiple-answers';
 import createFalseAndTrue from './activities/false-true';
 import createDragAndDropImages from './activities/drag-and-drop-images';
 import createAccordionSelect from './activities/accordion-select';
+
+// CSS
+import './../scss/e-learning.scss';
