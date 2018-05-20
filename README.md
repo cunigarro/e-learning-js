@@ -25,7 +25,7 @@ These are the following activities:
 
 <h3>Npm:</h3>
 
-```html
+```sh
 npm install e-learning-js --save-dev
 ```
 
@@ -33,19 +33,19 @@ npm install e-learning-js --save-dev
 
 <h3>Common js:</h3>
 
-```html
+```javascript
 require('e-learning-js');
 ```
 
 <h3>Import ES6:</h3>
 
-```html
+```javascript
 import 'e-learning-js';
 ```
 
 <h3>Import SASS:</h3>
 
-```html
+```scss
 @import '~e-learning-js/scss/e-learning';
 ```
 
