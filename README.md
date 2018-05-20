@@ -21,11 +21,39 @@ These are the following activities:
   <li><strong>Accordion select</strong></li>
 </ol>
 
+<h2>Installation:</h2>
+
+<h3>Npm:</h3>
+
+```sh
+npm install e-learning-js
+```
+
+<h2>Module:</h2>
+
+<h3>Common js:</h3>
+
+```javascript
+require('e-learning-js');
+```
+
+<h3>Import ES6:</h3>
+
+```javascript
+import 'e-learning-js';
+```
+
+<h3>Import SASS:</h3>
+
+```scss
+@import '~e-learning-js/src/scss/e-learning-js';
+```
+
 <h2>Usage:</h2>
 
 You need to follow the next html structure for each activity and add javascript parameters for each of one.
 
-Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/develop/css/e-learning_activities_0.1.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/develop/js/e-learning_activities_0.1.js) inside the body tag before close it.
+Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.js) inside the body tag before close it.
 
 <h3>Multiple choice</h3>
 

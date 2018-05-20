@@ -1,0 +1,81 @@
+@charset 'UTF-8';
+
+/*--General--*/
+html, body {
+	font-family: 'Open Sans', sans-serif;
+  margin: 0;
+	padding: 0;
+	font-size: 15px;
+	background-color: #F3F3F3;
+}
+h2{
+	margin: 10px 0;
+	color: #119BAA;
+	font-size: 20px;
+	font-family: 'Arial';
+	padding: 0 1%;
+}
+h3{
+	margin: 10px 0;
+	color: #555;
+	font-size: 18px;
+	font-family: 'Arial';
+	padding: 0 1%;
+}
+h4{
+	margin: 10px 0;
+	color: #119BAA;
+	font-size: 17px;
+	font-family: 'Arial';
+	font-weight: normal;
+	padding: 0 1%;
+}
+p{
+  font-weight: normal;
+  margin: 10px 1%;
+  line-height: 20px;
+  color: #444;
+  text-align: justify;
+  padding: 0;
+  width: 98%;
+  vertical-align: top;
+  display: inline-block;
+}
+figure{
+	margin: 10px 1%;
+	background-color: #FFF;
+	padding: 1%;
+	border: thin solid #DDD;
+	text-align: right;
+	width: 95.8%;
+	position: relative;
+	vertical-align: top;
+}
+a:link{
+	color: #149DAA;
+	outline: none;
+}
+a:visited{
+	color: #149DAA;
+	outline: none;
+}
+br{
+	line-height: 1px;
+}
+input{
+	cursor: pointer;
+	text-align: center;
+	height: 22px;
+	margin-bottom: 4px;
+	color: #119baa;
+	padding-top: 1px;
+	border: thin solid #119baa;
+}
+* {
+	outline: none !important;
+	-moz-outline: none !important;
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #119baa;
+}

@@ -1,0 +1,36 @@
+{
+  "name": "e-learning-js",
+  "version": "0.1.1",
+  "description": "E-learning js library was created with the promise for help to create activities for e-learning courses that can return data about evaluation and time. It is will be based on a standard called SCORM that let me us set data easily on e-learning platform like Blackboard and Moodle.",
+  "sass": "src/scss/e-learning-js",
+  "main": "src/js/e-learning-js",
+  "scripts": {
+    "develop": "webpack --mode development --watch",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cunigarro/e-learning-js.git"
+  },
+  "keywords": [
+    "e-learning"
+  ],
+  "author": "Christian Unigarro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cunigarro/e-learning-js/issues"
+  },
+  "homepage": "https://github.com/cunigarro/e-learning-js#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.47",
+    "@babel/preset-env": "^7.0.0-beta.47",
+    "babel-loader": "^8.0.0-beta.3",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-alpha.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  }
+}
