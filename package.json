@@ -1,0 +1,18 @@
+{
+  "name": "e-learning-js",
+  "version": "0.1.1",
+  "description": "E-learning js library was created with the promise for help to create activities for e-learning courses that can return data about evaluation and time. It is will be based on a standard called SCORM that let me us set data easily on e-learning platform like Blackboard and Moodle.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cunigarro/e-learning-js.git"
+  },
+  "keywords": [
+    "e-learning"
+  ],
+  "author": "Christian Unigarro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cunigarro/e-learning-js/issues"
+  },
+  "homepage": "https://github.com/cunigarro/e-learning-js#readme"
+}
