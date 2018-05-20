@@ -5,7 +5,7 @@ import addValidationIcon from './utilities/add-validation-icon';
 // Activities
 import createMultipleChoice from './activities/multiple-choice';
 import createSelect from './activities/select';
-import createDragAndDrop from './activities/drag-drop';
+import createDragAndDrop from './activities/drag-and-drop';
 import createMultipleUniqueAnswers from './activities/multiple-unique-answers';
 import createMultipleAnswers from './activities/multiple-answers';
 import createFalseAndTrue from './activities/false-true';
