@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- E-learning js -->
-        <link rel="stylesheet" href="./../../../dist/e-learning-js.min.css">
+        <link rel="stylesheet" href="./../../dist/e-learning-js.min.css">
         <!-- E-learning js -->
 
         <!-- Onw styles -->
@@ -55,45 +55,49 @@
                 </nav>
                 <div class="content">
                     <!--Empieza contenido-->
-                    <h2>4. Multiple unique answer:</h2>
+                    <h2>3. Drag and drop:</h2>
                     <p class="bold">Example 1:</p>
-                    <ol class="word_list questions_5_1">
-                        <li>Pregunta 1:
-                            <ol data-question="1" class="no_list">
-                                <li><input data-option="option_1" value="1" type="radio" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> Opción respuesta 1.</li>
-                                <li><input data-option="option_2" value="2" type="radio" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> Opción respuesta 2.</li>
-                                <li><input data-option="option_3" value="3" type="radio" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> Opción respuesta 3.</li>
-                                <li><input data-option="option_4" value="4" type="radio" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> Opción respuesta 4.</li>
-                            </ol>
-                        </li>
-                        <li>Pregunta 2:
-                            <ol data-question="2" class="no_list">
-                                <li><input data-option="option_1" value="1" type="radio" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="far"></i></label> Opción respuesta 1.</li>
-                                <li><input data-option="option_2" value="2" type="radio" name="option_2" autocomplete="off"/><label for="option_2_2"><i class="far"></i></label> Opción respuesta 2.</li>
-                                <li><input data-option="option_3" value="3" type="radio" name="option_2" autocomplete="off"/><label for="option_2_3"><i class="far"></i></label> Opción respuesta 3.</li>
-                                <li><input data-option="option_4" value="4" type="radio" name="option_2" autocomplete="off"/><label for="option_2_4"><i class="far"></i></label> Opción respuesta 4.</li>
-                            </ol>
-                        </li>
-                        <li>Pregunta 3:
-                            <ol data-question="3" class="no_list">
-                                <li><input data-option="option_1" value="1" type="radio" name="option_3" autocomplete="off"/><label for="option_3_1"><i class="far"></i></label> Opción respuesta 1.</li>
-                                <li><input data-option="option_2" value="2" type="radio" name="option_3" autocomplete="off"/><label for="option_3_2"><i class="far"></i></label> Opción respuesta 2.</li>
-                                <li><input data-option="option_3" value="3" type="radio" name="option_3" autocomplete="off"/><label for="option_3_3"><i class="far"></i></label> Opción respuesta 3.</li>
-                                <li><input data-option="option_4" value="4" type="radio" name="option_3" autocomplete="off"/><label for="option_3_4"><i class="far"></i></label> Opción respuesta 4.</li>
-                            </ol>
-                        </li>
-                    </ol>
+                    <ul class="no_list float grid12 answers_place_4_1">
+                        <li>No han cambiado los cimientos, solo hay</li>
+                        <li>parches grises acá donde daba el <span data-question="1" class="box"></span>.</li>
+                        <li>La casa se ve más pesada</li>
+                        <li>ahora se han ido.</li>
+                        <li>De hecho fue vaciada en tiempo <span data-question="2" class="box"></span>.</li>
+                        <li>Allí donde la mesa plana terminaba.</li>
+                        <li>un fósforo se extingue, lentamente, hacia la noche.</li>
+                        <li>La academia del futuro</li>
+                        <li>abre sus <span data-question="3" class="box"></span> y desea.</li>
+                        <li>La inútil luz solar fluye hacia las bóvedas.</li>
+                        <li>Las sillas están apiladas entre libros y papeles.</li>
+                        <li>Lo que estaba sedado este <span data-question="4" class="box"></span> se trastorna,</li>
+                        <li>ese valor eterno, ha cambiado de <span data-question="5" class="box"></span>.</li>
+                        <li>Y pudiste haber tenido un automóvil nuevo,</li>
+                        <li>una mesa de <span data-question="6" class="box"></span> y un garaje, pero el ladrón.</li>
+                        <li>En el libro había una ilustración de la traición</li>
+                        <li>y en el <span data-question="7" class="box"></span>, llanto y colores.</li>
+                    </ul>
+                    <p class="grid12 bold">Lista de palabras:</p>
+                    <ul class="no_list grid12 answer_options_4_1">
+                        <li class="box_answer_content"><div class="box answer_par" data-option="1">mes</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="2">ping-pong</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="4">puertas</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="3">manos</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="5">jardín</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="7">sol</div></li>
+                        <li class="box_answer_content"><div class="box answer_par" data-option="6">récord</div></li>
+                    </ul>
                     <div class="btn_activities grid12">
-                        <div id="check_answers_5_1">
+                        <div id="check_answers_4_1">
                             <span>Check</span>
                         </div>
-                        <div id="reset_answers_5_1">
+                        <div id="reset_answers_4_1">
                             <span>Reset</span>
                         </div>
-                        <div id="answers_5_1">
+                        <div id="answers_4_1">
                             <span>Answers</span>
                         </div>
                     </div>
+                    <p></p>
                     <!--Finaliza contenido-->
                 </div>
                 <nav>
@@ -117,10 +121,10 @@
         <input
             class="js-conf"
             type="hidden"
-            data-current-page="5">
+            data-current-page="4">
 
         <!-- E-learning js -->
-        <script src="./../../../dist/e-learning-js.min.js"></script>
+        <script src="./../../dist/e-learning-js.min.js"></script>
         <!-- E-learning js -->
 
         <!-- Own js -->
@@ -129,13 +133,14 @@
 
         <!-- Activity call -->
         <script>
-            /*--Page 5 activity 1--*/
-            createMultipleUniqueAnswers ({
-                questions_html: '.questions_5_1',
-                check_button: '#check_answers_5_1',
-                reset_button: '#reset_answers_5_1',
-                answer_button: '#answers_5_1',
-                answers: [1, 2, 4]
+            /*--Page 4 activity 1--*/
+            createDragAndDrop ({
+                options_html: '.answer_options_4_1',
+                questions_html: '.answers_place_4_1',
+                check_button: '#check_answers_4_1',
+                reset_button: '#reset_answers_4_1',
+                answer_button: '#answers_4_1',
+                answers: [2, 1, 3, 4, 5, 6, 7]
             });
         </script>
         <!-- Activity call -->
