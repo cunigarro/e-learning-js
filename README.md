@@ -26,7 +26,7 @@ These are the following activities:
 <h3>Npm:</h3>
 
 ```sh
-npm install e-learning-js --save-dev
+npm install e-learning-js
 ```
 
 <h2>Module:</h2>
