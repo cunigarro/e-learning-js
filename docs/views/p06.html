@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <!-- E-learning js -->
-        <link rel="stylesheet" href="./../../../dist/e-learning-js.min.css">
+        <link rel="stylesheet" href="./../../dist/e-learning-js.min.css">
         <!-- E-learning js -->
 
         <!-- Onw styles -->
@@ -55,38 +55,43 @@
                 </nav>
                 <div class="content">
                     <!--Empieza contenido-->
-                    <h2>6. False and True:</h2>
-                    <p class="bold">Example 1</p>
-                    <ul class="word_list questions_7_1">
-                        <li data-question="1">
-                            Oración número uno.
-                            <span><input type="radio" value="1" data-option="option_1" name="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> (T)</span>&nbsp;
-                            <span><input  type="radio" value="2" data-option="option_2" name="option_1" autocomplete="off"/><label for="option_1_2"><i class="far"></i></label> (F)</span>
+                    <h2>5. Multiples answers:</h2>
+                    <p class="bold">Example 1:</p>
+                    <ol class="word_list questions_6_1">
+                        <li class="question_text">Pregunta 1:
+                            <ol class="no_list" data-question="1">
+                                <li><input type="checkbox" value="1" data-option="option_1" autocomplete="off"/><label for="option_1_1"><i class="far"></i></label> Opción respuesta 1.</li>
+                                <li><input type="checkbox" value="2" data-option="option_2" autocomplete="off"/><label for="option_1_2"><i class="far"></i></label> Opción respuesta 2.</li>
+                                <li><input type="checkbox" value="3" data-option="option_3" autocomplete="off"/><label for="option_1_3"><i class="far"></i></label> Opción respuesta 3.</li>
+                                <li><input type="checkbox" value="4" data-option="option_4" autocomplete="off"/><label for="option_1_4"><i class="far"></i></label> Opción respuesta 4.</li>
+                                <li><input type="checkbox" value="5" data-option="option_5" autocomplete="off"/><label for="option_1_5"><i class="far"></i></label> Opción respuesta 5.</li>
+                            </ol>
                         </li>
-                        <li data-question="2">
-                            Oración número uno.
-                            <span><input type="radio" value="1" data-option="option_1" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="far"></i></label> (T)</span>&nbsp;
-                            <span><input type="radio" value="2" data-option="option_2" name="option_2" autocomplete="off"/><label for="option_2_1"><i class="far"></i></label> (F)</span>
+                        <li class="question_text">Pregunta 2:
+                            <ol class="no_list" data-question="2">
+                                <li><input type="checkbox" value="1" data-option="option_1" autocomplete="off"/><label for="option_2_1"><i class="far"></i></label> Opción respuesta 1.</li>
+                                <li><input type="checkbox" value="2" data-option="option_2" autocomplete="off"/><label for="option_2_2"><i class="far"></i></label> Opción respuesta 2.</li>
+                                <li><input type="checkbox" value="3" data-option="option_3" autocomplete="off"/><label for="option_2_3"><i class="far"></i></label> Opción respuesta 3.</li>
+                                <li><input type="checkbox" value="4" data-option="option_4" autocomplete="off"/><label for="option_2_4"><i class="far"></i></label> Opción respuesta 4.</li>
+                            </ol>
                         </li>
-                        <li data-question="3">
-                            Oración número tres.
-                            <span><input type="radio" value="1" data-option="option_1" name="option_3" autocomplete="off"/><label for="option_3_1"><i class="far"></i></label> (T)</span>&nbsp;
-                            <span><input type="radio" value="2" data-option="option_2" name="option_3" autocomplete="off"/><label for="option_3_2"><i class="far"></i></label> (F)</span>
+                        <li class="question_text">Pregunta 3:
+                            <ol class="no_list" data-question="3">
+                                <li><input type="checkbox" value="1" data-option="option_1" autocomplete="off"/><label for="option_3_1"><i class="far"></i></label> Opción respuesta 1.</li>
+                                <li><input type="checkbox" value="2" data-option="option_2" autocomplete="off"/><label for="option_3_2"><i class="far"></i></label> Opción respuesta 2.</li>
+                                <li><input type="checkbox" value="3" data-option="option_3" autocomplete="off"/><label for="option_3_3"><i class="far"></i></label> Opción respuesta 3.</li>
+                                <li><input type="checkbox" value="4" data-option="option_4" autocomplete="off"/><label for="option_3_4"><i class="far"></i></label> Opción respuesta 4.</li>
+                            </ol>
                         </li>
-                        <li data-question="4">
-                            Oración número cuatro.
-                            <span><input type="radio" value="1" data-option="option_1" name="option_4" autocomplete="off"/><label for="option_4_1"><i class="far"></i></label> (T)</span>&nbsp;
-                            <span><input type="radio" value="2" data-option="option_2" name="option_4" autocomplete="off"/><label for="option_4_2"><i class="far"></i></label> (F)</span>
-                        </li>
-                    </ul>
+                    </ol>
                     <div class="btn_activities grid12">
-                        <div id="check_answers_7_1">
+                        <div id="check_answers_6_1">
                             <span>Check</span>
                         </div>
-                        <div id="reset_answers_7_1">
+                        <div id="reset_answers_6_1">
                             <span>Reset</span>
                         </div>
-                        <div id="answers_7_1">
+                        <div id="answers_6_1">
                             <span>Answers</span>
                         </div>
                     </div>
@@ -113,10 +118,10 @@
         <input
             class="js-conf"
             type="hidden"
-            data-current-page="7">
+            data-current-page="6">
 
         <!-- E-learning js -->
-        <script src="./../../../dist/e-learning-js.min.js"></script>
+        <script src="./../../dist/e-learning-js.min.js"></script>
         <!-- E-learning js -->
 
         <!-- Own js -->
@@ -125,13 +130,17 @@
 
         <!-- Activity call -->
         <script>
-            /*--Page 7 activity 1--*/
-            createFalseAndTrue ({
-                questions_html: '.questions_7_1',
-                check_button: '#check_answers_7_1',
-                reset_button: '#reset_answers_7_1',
-                answer_button: '#answers_7_1',
-                answers: [1, 2, 1, 1]
+            /*--Page 6 activity 1--*/
+            createMultipleAnswers ({
+            questions_html: '.questions_6_1',
+            check_button: '#check_answers_6_1',
+            reset_button: '#reset_answers_6_1',
+            answer_button: '#answers_6_1',
+            answers: [
+                [1, 3, 4, 5],
+                [3, 4],
+                [1, 3, 4]
+            ]
             });
         </script>
         <!-- Activity call -->
