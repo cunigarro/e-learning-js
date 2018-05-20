@@ -53,7 +53,7 @@ import 'e-learning-js';
 
 You need to follow the next html structure for each activity and add javascript parameters for each of one.
 
-Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/develop/css/e-learning_activities_0.1.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/develop/js/e-learning_activities_0.1.js) inside the body tag before close it.
+Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.js) inside the body tag before close it.
 
 <h3>Multiple choice</h3>
 
