@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: './src/js/e-learning-js.js',
   output: {
-    filename: 'e-learning.min.js',
+    filename: 'e-learning-js.min.js',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin({
       filename:  (getPath) => {
-        return getPath('e-learning.min.css').replace('css/js', 'css');
+        return getPath('e-learning-js.min.css').replace('css/js', 'css');
       },
       allChunks: true
     }),
