@@ -42,7 +42,8 @@
 
 /*--Photo frames--*/
  figure figcaption{
-	font-family: "open_sanslight";
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 	color: #333;
 	font-size: 13px;
 }
@@ -126,7 +127,6 @@ table{
 }
 .table1 tr td, .table12 tr td, .table12c tr td, .table13 tr td, .table13c tr td, .table23 tr td, .table23c tr td{
 	border: thin solid #DDD;
-	font-family: 'open_sansregular';
 	padding: 5px 8px;
 	background-color: #FCFCFC;
 	color: #333;
@@ -147,7 +147,6 @@ table{
 /*--List--*/
 .normal_list, .word_list, .number_list, .no_list{
 	margin: 2px 1%;
-	font-family: 'open_sansregular';
 	color: #333;
 	text-align: justify;
 	padding: 0;
@@ -160,7 +159,6 @@ table{
 }
 .normal_list li, .word_list li, .number_list li {
 	margin: 3px 0 10px 2.3%;
-	font-family: 'open_sansregular';
 	color: #333;
 	text-align: justify;
 	padding: 0;
@@ -181,7 +179,6 @@ table{
 }
 .word_list li .normal_list li, .number_list li .normal_list li{
 	margin: 3px 0 3px 0;
-	font-family: 'open_sansregular';
 	color: #333;
 	text-align: justify;
 	padding: 0;
@@ -191,7 +188,6 @@ table{
 }
 .word_list li .no_list li, .number_list li .no_list li{
 	margin: 3px 0 3px 0;
-	font-family: 'open_sansregular';
 	color: #333;
 	text-align: justify;
 	padding-left: 4.2%;
@@ -263,21 +259,26 @@ ol[class="number_list grid13"] li:before, ol[class="grid13 number_list"] li:befo
 
 /*--Word Styles--*/
 .bold{
-	font-family: 'open_sansbold';
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
 }
 .bold2{
-	font-family: 'open_sansbold';
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
 	color: #00A7AF;
 }
 .semibold{
-	font-family: 'open_sanssemibold';
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 }
 .semibold2{
-	font-family: 'open_sanssemibold';
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 	color: #00A7AF;
 }
 .italic{
-	font-family: 'open_sansitalic';
+	font-family: 'Open Sans', sans-serif;
+	font-style: italic;
 }
 
 /*--Button close of the lytebox--*/
@@ -344,7 +345,8 @@ ol[class="number_list grid13"] li:before, ol[class="grid13 number_list"] li:befo
 	padding: 35px 5px 0 22px;
 	text-align: center;
 	color: #FFF;
-	font-family: 'open_sanssemibold';
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
 	font-size: 10px;
 	text-decoration: none;
 }

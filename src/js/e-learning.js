@@ -14,3 +14,17 @@ import createAccordionSelect from './activities/accordion-select';
 
 // CSS
 import './../scss/e-learning.scss';
+
+// Set functions on global
+Object.assign(window, {
+  addEventHandler,
+  addValidationIcon,
+  createMultipleChoice,
+  createSelect,
+  createDragAndDrop,
+  createMultipleUniqueAnswers,
+  createMultipleAnswers,
+  createFalseAndTrue,
+  createDragAndDropImages,
+  createAccordionSelect
+});

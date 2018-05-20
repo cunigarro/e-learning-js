@@ -7,22 +7,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="../css/libs/normalize.css">
-        <link rel="stylesheet" href="../css/libs/font-awesome.min.css" />
-        <!--Estilos propios-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+        <!-- Onw styles -->
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/layout.css">
         <link rel="stylesheet" href="../css/navigation.css">
         <link rel="stylesheet" href="../css/content.css">
         <link rel="stylesheet" href="../css/responsive.css">
-        <link rel="stylesheet" href="../css/fonts.css">
-        <!--Estilos propios-->
-
-        <script src="../js/content_menu.js"></script>
-        <script>
-            var number_page = 1;
-        </script>
-        <script src="../js/pager_functions.js"></script>
+        <!-- Onw styles -->
     </head>
     <body>
         <!--[if lt IE 9]>
@@ -36,23 +31,21 @@
                 <nav>
                     <ul class="local_nav">
                         <li>
-                            <a href="javascript:go_prev(number_page);" class="btn_prev" id="prev"><i class="fa fa-arrow-circle-o-left"></i></a>
+                            <a class="js-prev-btn" href="#"><i class="far fa-arrow-alt-circle-left fa-2x"></i></a>
                         </li>
                         <li>
-                            <script>
-                                document.write(number_page+"/"+total_pages);
-                            </script>
+                            <span class="js-current-page"></span>
+                            /
+                            <span class="js-total-pages"></span>
                         </li>
                         <li>
-                            <a href="javascript:go_next(number_page);" class="btn_next" id="next"><i class="fa fa-arrow-circle-o-right"></i></a>
+                            <a class="js-next-btn" href="#"><i class="far fa-arrow-alt-circle-right fa-2x"></i></a>
                         </li>
                     </ul>
                     <ul class="general_nav">
                         <li>
                             <a class="btn_content"><i class="fa fa-bars fa-2x"></i></a>
-                            <script>
-                                document.write(content_menu);
-                            </script>
+                            <ul class="menu js-menu"></ul>
                         </li>
                     </ul>
                 </nav>
@@ -74,19 +67,28 @@
                 <nav>
                     <ul class="local_nav">
                         <li>
-                            <a href="javascript:go_prev(number_page);" class="btn_prev" id="prev"><i class="fa fa-arrow-circle-o-left"></i></a>
+                            <a class="js-prev-btn" href="#"><i class="far fa-arrow-alt-circle-left fa-2x"></i></a>
                         </li>
                         <li>
-                            <script>
-                                document.write(number_page+"/"+total_pages);
-                            </script>
+                            <span class="js-current-page"></span>
+                            /
+                            <span class="js-total-pages"></span>
                         </li>
                         <li>
-                            <a href="javascript:go_next(number_page);" class="btn_next" id="next"><i class="fa fa-arrow-circle-o-right"></i></a>
+                            <a class="js-next-btn" href="#"><i class="far fa-arrow-alt-circle-right fa-2x"></i></a>
                         </li>
                     </ul>
                 </nav>
             </article>
         </section>
+
+        <input
+            class="js-conf"
+            type="hidden"
+            data-current-page="1">
+
+        <!-- Own js -->
+        <script src="./../main.js"></script>
+        <!-- Own js -->
     </body>
 </html>

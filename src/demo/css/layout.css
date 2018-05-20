@@ -1,0 +1,271 @@
+/*--Layout--*/
+.main_container {
+  position: relative;
+  background-color: #DDD;
+  max-width: 1024px;
+  min-height: 710px;
+  margin: 2% auto 12% auto;
+  border-radius: 10px;
+  background: #FFF;
+  border: thin solid #DDD;
+}
+
+/*--Header--*/
+.main_container header {
+  width: 100%;
+  vertical-align: top;
+  right: 0;
+  margin: 0;
+  height: 61px;
+}
+.main_container header h1{
+  width: 97%;
+  color: #555;
+  margin: 2.1% auto;
+  text-align: center;
+  font-family: 'Georgia';
+  font-style: italic;
+  font-weight: bold;
+  font-size: 29px;
+  border-bottom: thin solid #CCC;
+  padding-bottom: 2.1%;
+}
+.main_container header .btn_close{
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  right: 0;
+  margin: 6px 6px 0 0;
+  cursor: pointer;
+}
+.main_container header ul{
+  margin: 0 0 0 2.5%;
+  padding: 0;
+}
+.main_container header ul li{
+  display: inline-block;
+  width: 110px;
+  font-size: 23px;
+  color: #149DAA;
+  font-family: 'quicksanditalic';
+  margin: 0px 0 0 55px;
+  position: relative;
+  vertical-align: top;
+}
+.main_container header ul li h1{
+  margin: 8px 0;
+  padding: 0;
+  font-weight: normal;
+}
+.main_container header ul .course_title{
+  width: 28.5%;
+  color: #FFF;
+  margin: 10px 0 0 0;
+  cursor: pointer;
+}
+.main_container header ul .course_title h1:first-child{
+  font-family: 'quicksanditalic';
+  margin: 0;
+  line-height: 27px;
+  font-size: 25px;
+  text-shadow: 0px 0px 0px #FFF;
+}
+.main_container header ul .course_title h1:last-child{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  line-height: 27px;
+  font-size: 25px;
+}
+.main_container header ul .level_unit{
+  color: #149DAA;
+  margin: 8px 0 0 0;
+  width: 17.5%;
+}
+.main_container header ul .level_unit h1:first-child{
+  font-family: 'quicksanditalic';
+  margin: 0px 0 0 0;
+  line-height: 24px;
+  font-weight: 550;
+  font-size: 24px;
+  text-shadow: 0px 0px 0px #149DAA;
+}
+.main_container header ul .level_unit h1:last-child{
+  font-family: 'quicksanditalic';
+  margin: 0;
+  line-height: 24px;
+  font-size: 24px;
+  text-shadow: 0px 0px 0px #149DAA;
+}
+.main_container header ul .lesson_title{
+  width: 50%;
+  margin-top: 7px;
+  font-size: 23px;
+  margin: 8px 0 0 0;
+}
+.main_container header ul .lesson_title h1:first-child{
+  font-family: 'quicksanditalic';
+  margin: 0px 0 0 0;
+  line-height: 24px;
+  font-size: 21px;
+  text-shadow: 0px 0px 0px #149DAA;
+}
+.main_container header ul .lesson_title h1:last-child{
+  font-family: 'quicksanditalic';
+  margin: 0;
+  line-height: 24px;
+  color: #444;
+  font-size: 21px;
+  text-shadow: 0px 0px 0px #444;
+}
+.main_container header ul .course_title h1:last-child span{
+  color: #FFC742;
+}
+.container {
+  margin: 1% 1.5% 1.5% 1.5%;
+  width: 97%;
+  background-color: #FFF;
+  bottom: 0;
+  position: relative;
+  display: block;
+  border-radius: 10px;
+  padding: 0;
+}
+
+/*--Layout intro--*/
+.main_container_intro{
+  vertical-align: middle;
+  position: relative;
+  background-color: #DDD;
+  max-width: 950px;
+  min-height: 680px;
+  margin: 2% auto 12% auto;
+  border-radius: 15px;
+  border: none;
+  background: #00B3B8;
+}
+.main_container_intro .back_intro{
+  background: url(../img/back_intro.png) no-repeat right top;
+  vertical-align: top;
+  right: 0;
+  margin: 0;
+  -webkit-border-top-right-radius: 15px;
+  -moz-border-radius-topright: 15px;
+  border-top-right-radius: 15px;
+  -webkit-border-top-left-radius: 15px;
+  -moz-border-radius-topleft: 15px;
+  border-top-left-radius: 15px;
+  width: 100%;
+  height: 263px;
+  -webkit-border-top: 3px solid #FFF;
+  -moz-border-top: 3px solid #FFF;
+  border-top: 3px solid #FFF;
+  -webkit-border-right: 3px solid #FFF;
+  -moz-border-right: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  margin: -3px -3px 0 0;
+}
+.title_1{
+  color: #FFF;
+  position: absolute;
+  top: 110px;
+  left: 10%;
+}
+.title_1 h1:first-child{
+  font-family: 'quicksanditalic';
+  margin: 0px 0 0 0;
+  line-height: 37px;
+  font-size: 40px;
+  text-shadow: 0px 0px 0px #FFF;
+  font-weight: normal;
+}
+.title_1 h1:last-child{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  line-height: 37px;
+  font-size: 40px;
+  font-weight: normal;
+}
+.title_1 h1:last-child span{
+  color: #FFC742;
+}
+
+.title_2{
+  color: #00A6AF;
+  position: absolute;
+  top: 108px;
+  left: 69%;
+}
+.title_2 h1:first-child{
+  font-family: 'quicksanditalic';
+  margin: 0px 0 0 0;
+  line-height: 37px;
+  font-weight: 550;
+  font-size: 36px;
+  text-shadow: 0px 0px 0px #00A6AF;
+  font-weight: normal;
+}
+.title_2 h1:last-child{
+  font-family: 'quicksanditalic';
+  margin: 0;
+  line-height: 37px;
+  font-size: 36px;
+  text-shadow: 0px 0px 0px #00A6AF;
+  font-weight: normal;
+}
+.title_3{
+  color: #FFF;
+  position: absolute;
+  top: 39%;
+  text-align: center;
+  width: 100%;
+}
+.title_3 .title_1{
+  font-family: 'Georgia';
+  margin: 0;
+  line-height: 40px;
+  font-size: 41px;
+  text-shadow: 0px 0px 0px #FFF;
+  font-weight: bold;
+  font-style: italic;
+  position: relative;
+  left: 0;
+  top: 0;
+  display: inline-block;
+}
+.title_3 .title_2{
+  font-family: 'quicksanditalic';
+  margin: 0;
+  line-height: 42px;
+  font-size: 32px;
+  text-shadow: 0px 0px 0px #FFF;
+  font-weight: normal;
+  color: #FFF;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.title_3 .title_1 .paper_airplane{
+  position: relative;
+  background: url(../img/paper_airplane.png) no-repeat right top;
+  width: 79px;
+  height: 54px;
+  margin: 0;
+  margin-left: -81px;
+  display: inline-block;
+  left: 0;
+  top: 0;
+}
+.arrow_intro:link{
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  margin-left: -21px;
+  display: block;
+  margin-top: 14px;
+  padding: 0;
+}
+.arrow_intro i{
+  color: #FFF;
+}

@@ -2,7 +2,8 @@
 
 /*--General--*/
 html, body {
-    margin: 0;
+	font-family: 'Open Sans', sans-serif;
+  margin: 0;
 	padding: 0;
 	font-size: 15px;
 	background-color: #F3F3F3;
@@ -34,7 +35,6 @@ p{
   margin: 10px 1%;
   line-height: 20px;
   color: #444;
-  font-family: "open_sansregular";
   text-align: justify;
   padding: 0;
   width: 98%;
@@ -70,7 +70,6 @@ input{
 	color: #119baa;
 	padding-top: 1px;
 	border: thin solid #119baa;
-	font-family: "open_sansregular";
 }
 * {
 	outline: none !important;
