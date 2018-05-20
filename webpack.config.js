@@ -2,7 +2,7 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/e-learning.js',
+  entry: './src/js/e-learning-js.js',
   output: {
     filename: 'e-learning.min.js',
     path: path.resolve(__dirname, 'dist')

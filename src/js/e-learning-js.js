@@ -13,7 +13,7 @@ import createDragAndDropImages from './activities/drag-and-drop-images';
 import createAccordionSelect from './activities/accordion-select';
 
 // CSS
-import './../scss/e-learning.scss';
+import './../scss/e-learning-js.scss';
 
 // Set functions on global
 Object.assign(window, {
