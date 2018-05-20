@@ -8,7 +8,7 @@ const createDragAndDropImages = (options) => {
   var answers = options.answers;
   var options_html_content = [];
   var currentlyDragging = null;
-  selected = [];
+  var selected = [];
 
   function activateDragAndDrop() {
     options_html = document.querySelector(options.options_html).querySelectorAll('.box_img');

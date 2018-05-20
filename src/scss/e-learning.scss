@@ -120,6 +120,7 @@
   padding-top: 1px;
   cursor: pointer;
   padding: 1px 8px;
+  line-height: normal;
 }
 .select_activity li div img{
   width: 100%;
@@ -424,18 +425,18 @@ input[type='radio'] + label, input[type='checkbox'] + label {
 input[type='radio'] + label i:before, input[type='checkbox'] + label i:before {
   font-size: 17px;
   display: block;
-  content:"\f096";
+  content:"\f0c8";
   color: #119baa;
 }
 input[type='radio'] + label i:before {
-  content:"\f10c";
+  content:"\f111";
 }
 input[type='radio']:checked + label i:before, input[type='checkbox']:checked + label i:before {
-  content:"\f046";
+  content:"\f14a";
   color: #119baa;
 }
 input[type='radio']:checked + label i:before {
-  content:"\f192";
+  content:"\f058";
 }
 
 /*--Select input--*/
@@ -444,13 +445,12 @@ select {
   border-radius: 2px;
   overflow: hidden;
   padding: 3px 15px 1px 2px;
-  background: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-size: 22px;
   background-repeat: no-repeat;
   background-position: right center;
   color: #119baa;
   box-shadow: none;
+  position: relative;
+  background-color: transparent;
 }
