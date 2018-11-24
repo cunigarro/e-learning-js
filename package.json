@@ -2,8 +2,7 @@
   "name": "e-learning-js",
   "version": "0.1.2",
   "description": "E-learning js library was created with the promise for help to create activities for e-learning courses that can return data about evaluation and time. It is will be based on a standard called SCORM that let me us set data easily on e-learning platform like Blackboard and Moodle.",
-  "sass": "src/scss/e-learning-js",
-  "main": "src/js/e-learning-js",
+  "main": "dist/e-learning-js.min.js",
   "scripts": {
     "develop": "webpack --mode development --watch",
     "build": "webpack --mode production"
