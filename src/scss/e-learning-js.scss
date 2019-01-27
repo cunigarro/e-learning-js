@@ -131,6 +131,12 @@
     transform: rotate(45deg);
   }
 }
+.invalid_msg {
+  color: #e74c3c;
+}
+.valid_msg {
+  color: #4cae4c;
+}
 
 /*--Select activity--*/
 .select_activity li{
