@@ -8,6 +8,8 @@ const createSelect = (options) => {
   var answers = options.answers;
   var selected = [];
 
+  questions_html.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
+
   inputs.forEach(function(item, i) {
     var options = item.querySelectorAll('[data-option]');
     var question = '';
@@ -35,6 +37,8 @@ const createSelect = (options) => {
   });
 
   addEventHandler(check_button, 'click', function() {
+    var iterate = 0;
+
     inputs.forEach(function(item, i) {
       if(selected[i].answer != 0) {
         if(selected[i].answer == answers[i]) {
@@ -46,8 +50,16 @@ const createSelect = (options) => {
         answer_button.style.display = 'inline-block';
         reset_button.style.display = 'inline-block';
         check_button.style.display = 'none';
+      } else {
+        iterate++;
       }
     });
+
+    if(iterate === inputs.length) {
+      questions_html.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    } else {
+      questions_html.querySelector('.js-invalid-msg').innerHTML = '';
+    }
   });
 
   addEventHandler(reset_button, 'click', function() {

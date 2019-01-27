@@ -1,5 +1,6 @@
 /*--Drag and drop images BEGIN --*/
 const createDragAndDropImages = (options) => {
+  var questions_html_box = document.querySelector(options.questions_html);
   var options_html;
   var questions_html;
   var check_button = document.querySelector(options.check_button);
@@ -9,6 +10,8 @@ const createDragAndDropImages = (options) => {
   var options_html_content = [];
   var currentlyDragging = null;
   var selected = [];
+
+  questions_html_box.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
 
   function activateDragAndDrop() {
     options_html = document.querySelector(options.options_html).querySelectorAll('.box_img');
@@ -46,6 +49,8 @@ const createDragAndDropImages = (options) => {
   });
 
   addEventHandler(check_button, 'click', function() {
+    var iterate = 0;
+
     questions_html.forEach(function(item, i) {
       if(selected[i] != 0) {
         if(selected[i] == answers[i]) {
@@ -57,8 +62,16 @@ const createDragAndDropImages = (options) => {
         answer_button.style.display = 'inline-block';
         reset_button.style.display = 'inline-block';
         check_button.style.display = 'none';
+      } else {
+        iterate++;
       }
     });
+
+    if(iterate === questions_html.length) {
+      questions_html_box.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    } else {
+      questions_html_box.querySelector('.js-invalid-msg').innerHTML = '';
+    }
   });
 
   addEventHandler(reset_button, 'click', function() {

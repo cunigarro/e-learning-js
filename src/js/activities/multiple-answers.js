@@ -8,6 +8,8 @@ const createMultipleAnswers = (options) => {
   var answers = options.answers;
   var user_answer = {};
 
+  questions_html.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
+
   inputs.forEach(function(el, k) {
     var checkbox = el.querySelectorAll('input');
     el.insertAdjacentHTML('afterend', '<span></span>');
@@ -30,6 +32,8 @@ const createMultipleAnswers = (options) => {
   });
 
   addEventHandler(check_button, 'click', function() {
+    var iterate = 0;
+
     inputs.forEach(function(item, i) {
       var evaluation = false;
 
@@ -53,8 +57,16 @@ const createMultipleAnswers = (options) => {
         answer_button.style.display = 'inline-block';
         reset_button.style.display = 'inline-block';
         check_button.style.display = 'none';
+      } else {
+        iterate++;
       }
     });
+
+    if(iterate === inputs.length) {
+      questions_html.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    } else {
+      questions_html.querySelector('.js-invalid-msg').innerHTML = '';
+    }
   });
 
   addEventHandler(reset_button, 'click', function() {
