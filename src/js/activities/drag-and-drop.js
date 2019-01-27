@@ -33,9 +33,13 @@ const createDragAndDrop = (options) => {
       };
 
       item.ondrop = function(ev) {
-        item.appendChild(currentlyDragging);
-        selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
-        currentlyDragging = null;
+        ev.preventDefault();
+
+        if(item.innerHTML === '') {
+          item.appendChild(currentlyDragging);
+          selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
+          currentlyDragging = null;
+        }
       };
     });
   }

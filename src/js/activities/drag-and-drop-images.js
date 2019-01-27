@@ -34,9 +34,12 @@ const createDragAndDropImages = (options) => {
 
       item.ondrop = function(ev) {
         ev.preventDefault();
-        item.appendChild(currentlyDragging);
-        selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
-        currentlyDragging = null;
+
+        if(item.innerHTML === '') {
+          item.appendChild(currentlyDragging);
+          selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
+          currentlyDragging = null;
+        }
       };
     });
   }
