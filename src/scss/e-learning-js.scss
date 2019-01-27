@@ -96,13 +96,40 @@
 }
 .wrong_icon{
   display: none;
-  font-size: 35px;
-  color: #E74C3C;
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-bottom: -6px;
+
+  &:before, &:after {
+    position: absolute;
+    left: 4px;
+    top: 0;
+    content: " ";
+    height: 22px;
+    width: 4px;
+    background-color: #e74c3c;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
 }
 .good_icon{
   display: none;
-  font-size: 22px;
-  color: #4CAE4C;
+  margin-bottom: -1px;
+
+  &:after{
+    content: "";
+    display: block;
+    width: 7px;
+    height: 14px;
+    border: solid #4cae4c;
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+  }
 }
 
 /*--Select activity--*/
