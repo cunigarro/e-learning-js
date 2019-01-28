@@ -1,73 +1,99 @@
-var jsConf = document.querySelector('.js-conf');
-var menuContent =
-  '<li><a href="p01.html" target="_self">Table of contents</a></li>' +
-  '<li><a href="p02.html" target="_self">1. Multiple choice</a></li>' +
-  '<li><a href="p03.html" target="_self">2. Select</a></li>' +
-  '<li><a href="p04.html" target="_self">3. Drag and drop</a></li>' +
-  '<li><a href="p05.html" target="_self">4. Multiple unique answer</a></li>' +
-  '<li><a href="p06.html" target="_self">5. Multiples answers</a></li>' +
-  '<li><a href="p07.html" target="_self">6. False and True</a></li>' +
-  '<li><a href="p08.html" target="_self">7. Drag and drop images</a></li>' +
-  '<li><a href="p09.html" target="_self">8. Accordion select</a></li>';
-var totalPages = 9;
-var currentPage = parseInt(jsConf.getAttribute('data-current-page'));
-var menuContainer = document.querySelector('.js-menu');
-var prevBtn = document.querySelectorAll('.js-prev-btn');
-var nextBtn = document.querySelectorAll('.js-next-btn');
-var currentPageContainer = document.querySelectorAll('.js-current-page');
-var totalPagesContainer = document.querySelectorAll('.js-total-pages');
+import { createMultipleChoice } from '../src/js/e-learning-js';
 
-/*--Go to previos and next page--*/
-function goPrev (pageNumber) {
-    var new_link = '';
-    if (pageNumber > 1){
-        temp_page = pageNumber - 1;
-        if (temp_page <= 9)
-            new_link = 'p0' + temp_page + '.html';
-        else
-            new_link = 'p' + temp_page + '.html';
-    }else{
-        new_link = '../index.html';
+const jsConf = document.querySelector('.js-conf');
+
+const menuContent = `
+  <li><a href="p01.html" target="_self">Table of contents</a></li>
+  <li><a href="p02.html" target="_self">1. Multiple choice</a></li>
+  <li><a href="p03.html" target="_self">2. Select</a></li>
+  <li><a href="p04.html" target="_self">3. Drag and drop</a></li>
+  <li><a href="p05.html" target="_self">4. Multiple unique answer</a></li>
+  <li><a href="p06.html" target="_self">5. Multiples answers</a></li>
+  <li><a href="p07.html" target="_self">6. False and True</a></li>
+  <li><a href="p08.html" target="_self">7. Drag and drop images</a></li>
+  <li><a href="p09.html" target="_self">8. Accordion select</a></li>
+`;
+
+const totalPages = 9;
+const currentPage = parseInt(jsConf.getAttribute('data-current-page'), 10);
+const menuContainer = document.querySelector('.js-menu');
+const prevBtn = document.querySelectorAll('.js-prev-btn');
+const nextBtn = document.querySelectorAll('.js-next-btn');
+const currentPageContainer = document.querySelectorAll('.js-current-page');
+const totalPagesContainer = document.querySelectorAll('.js-total-pages');
+
+// Go to previos and next page
+function goPrev(pageNumber) {
+  let newLink = '';
+  if (pageNumber > 1) {
+    const tempPage = pageNumber - 1;
+    if (tempPage <= 9) {
+      newLink = `p0${tempPage}.html`;
+    } else {
+      newLink = `p${tempPage}.html`;
     }
-    window.location.href = new_link;
+  } else {
+    newLink = '../index.html';
+  }
+  window.location.href = newLink;
 }
 
-function goNext (pageNumber) {
-    var new_link = '';
-    if (pageNumber < totalPages){
-        var temp_page = pageNumber + 1;
-        if (temp_page <= 9)
-            new_link = 'p0' + temp_page + '.html';
-        else
-            new_link = 'p' + temp_page + '.html';
-    }else{
-        new_link = 'javascript:void(0);';
+function goNext(pageNumber) {
+  let newLink = '';
+  if (pageNumber < totalPages) {
+    const tempPage = pageNumber + 1;
+    if (tempPage <= 9) {
+      newLink = `p0${tempPage}.html`;
+    } else {
+      newLink = `p${tempPage}.html`;
     }
-    window.location.href = new_link;
+  } else {
+    newLink = '/';
+  }
+  window.location.href = newLink;
 }
 
 // Menu
 menuContainer.innerHTML = menuContent;
 
 currentPageContainer.forEach((el) => {
-  el.innerHTML = currentPage;
+  const elRef = el;
+  elRef.innerHTML = currentPage;
 });
 
 totalPagesContainer.forEach((el) => {
-  el.innerHTML = totalPages;
+  const elRef = el;
+  elRef.innerHTML = totalPages;
 });
 
 prevBtn.forEach((el) => {
-  el.addEventListener('click', function (evt) {
+  el.addEventListener('click', (evt) => {
     evt.preventDefault();
     goPrev(currentPage);
   });
 });
 
 nextBtn.forEach((el) => {
-  el.addEventListener('click', function (evt) {
+  el.addEventListener('click', (evt) => {
     evt.preventDefault();
     goNext(currentPage);
   });
 });
 
+// Page 2 activity 1
+if (document.querySelector('.questions_2_1') !== null) {
+  createMultipleChoice({
+    questionsHtml: '.questions_2_1',
+    checkButton: '#check_answers_2_1',
+    resetButton: '#reset_answers_2_1',
+    answerButton: '#answers_2_1',
+    answers: [
+      ['father\'s', 'father´s', 'father'],
+      ['sisters', 'option_1', 'option_2'],
+      ['husband', 'option_1', 'option_2'],
+      ['wife', 'option_2'],
+      ['children', 'option_2'],
+      ['husband', 'option_2'],
+    ],
+  });
+}

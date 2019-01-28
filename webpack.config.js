@@ -2,10 +2,13 @@ const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/e-learning-js.js',
+  entry: {
+    'e-learning-js': './src/js/e-learning-js.js',
+    main: './docs/main.js',
+  },
   output: {
-    filename: 'e-learning-js.min.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].min.js',
+    path: path.resolve(__dirname, 'docs/public'),
   },
   module: {
     rules: [
