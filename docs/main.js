@@ -1,4 +1,7 @@
-import { createMultipleChoice } from '../src/js/e-learning-js';
+import {
+  createMultipleChoice,
+  createSelect,
+} from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
 
@@ -95,5 +98,16 @@ if (document.querySelector('.questions_2_1') !== null) {
       ['children', 'option_2'],
       ['husband', 'option_2'],
     ],
+  });
+}
+
+// Page 3 activity 1
+if (document.querySelector('.questions_3_1') !== null) {
+  createSelect({
+    questionsHtml: '.questions_3_1',
+    checkButton: '#check_answers_3_1',
+    resetButton: '#reset_answers_3_1',
+    answerButton: '#answers_3_1',
+    answers: [3, 4, 2, 3, 2, 1, 3, 1, 4, 2],
   });
 }
