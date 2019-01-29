@@ -1,6 +1,7 @@
 import {
   createMultipleChoice,
   createSelect,
+  createDragAndDrop,
 } from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
@@ -109,5 +110,16 @@ if (document.querySelector('.questions_3_1') !== null) {
     resetButton: '#reset_answers_3_1',
     answerButton: '#answers_3_1',
     answers: [3, 4, 2, 3, 2, 1, 3, 1, 4, 2],
+  });
+}
+
+if (document.querySelector('.answer_options_4_1') !== null) {
+  createDragAndDrop({
+    optionsHtml: '.answer_options_4_1',
+    questionsHtml: '.answers_place_4_1',
+    checkButton: '#check_answers_4_1',
+    resetButton: '#reset_answers_4_1',
+    answerButton: '#answers_4_1',
+    answers: [2, 1, 3, 4, 5, 6, 7],
   });
 }
