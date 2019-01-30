@@ -3,6 +3,7 @@ import {
   createSelect,
   createDragAndDrop,
   createMultipleUniqueAnswers,
+  createMultipleAnswers,
 } from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
@@ -134,5 +135,19 @@ if (document.querySelector('.questions_5_1') !== null) {
     resetButton: '#reset_answers_5_1',
     answerButton: '#answers_5_1',
     answers: [1, 2, 4],
+  });
+}
+
+if (document.querySelector('.questions_6_1') !== null) {
+  createMultipleAnswers({
+    questionsHtml: '.questions_6_1',
+    checkButton: '#check_answers_6_1',
+    resetButton: '#reset_answers_6_1',
+    answerButton: '#answers_6_1',
+    answers: [
+      [1, 3, 4, 5],
+      [3, 4],
+      [1, 3, 4],
+    ],
   });
 }
