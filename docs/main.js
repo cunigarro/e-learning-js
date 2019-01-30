@@ -6,6 +6,7 @@ import {
   createMultipleAnswers,
   createFalseAndTrue,
   createDragAndDropImages,
+  createAccordionSelect,
 } from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
@@ -172,5 +173,15 @@ if (document.querySelector('.answer_options_8_1') !== null) {
     resetButton: '#reset_answers_8_1',
     answerButton: '#answers_8_1',
     answers: [7, 2, 3, 4, 5, 6, 1],
+  });
+}
+
+if (document.querySelector('.questions_9_1') !== null) {
+  createAccordionSelect({
+    questionsHtml: '.questions_9_1',
+    checkButton: '#check_answers_9_1',
+    resetButton: '#reset_answers_9_1',
+    answerButton: '#answers_9_1',
+    answers: [5, 1, 6, 7, 4, 2, 3],
   });
 }
