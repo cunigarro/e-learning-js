@@ -5,6 +5,7 @@ import {
   createMultipleUniqueAnswers,
   createMultipleAnswers,
   createFalseAndTrue,
+  createDragAndDropImages,
 } from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
@@ -160,5 +161,16 @@ if (document.querySelector('.questions_7_1') !== null) {
     resetButton: '#reset_answers_7_1',
     answerButton: '#answers_7_1',
     answers: [1, 2, 1, 1],
+  });
+}
+
+if (document.querySelector('.answer_options_8_1') !== null) {
+  createDragAndDropImages({
+    optionsHtml: '.answer_options_8_1',
+    questionsHtml: '.answers_place_8_1',
+    checkButton: '#check_answers_8_1',
+    resetButton: '#reset_answers_8_1',
+    answerButton: '#answers_8_1',
+    answers: [7, 2, 3, 4, 5, 6, 1],
   });
 }

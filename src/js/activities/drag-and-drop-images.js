@@ -1,43 +1,57 @@
-/*--Drag and drop images BEGIN --*/
-const createDragAndDropImages = (options) => {
-  var questions_html_box = document.querySelector(options.questions_html);
-  var options_html;
-  var questions_html;
-  var check_button = document.querySelector(options.check_button);
-  var reset_button = document.querySelector(options.reset_button);
-  var answer_button = document.querySelector(options.answer_button);
-  var answers = options.answers;
-  var options_html_content = [];
-  var currentlyDragging = null;
-  var selected = [];
+import addEventHandler from '../utilities/add-event-handler';
+import addValidationIcon from '../utilities/add-validation-icon';
 
-  questions_html_box.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
+// Drag and drop images BEGIN
+const createDragAndDropImages = (options) => {
+  const questionsHtmlBox = document.querySelector(options.questionsHtml);
+  let optionsHtml;
+  let questionsHtml;
+  const checkButton = document.querySelector(options.checkButton);
+  const resetButton = document.querySelector(options.resetButton);
+  const answerButton = document.querySelector(options.answerButton);
+  const answers = [
+    ...options.answers,
+  ];
+  const optionsHtmlContent = [];
+  let currentlyDragging = null;
+  const selected = [];
+
+  questionsHtmlBox.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
 
   function activateDragAndDrop() {
-    options_html = document.querySelector(options.options_html).querySelectorAll('.box_img');
-    questions_html = document.querySelector(options.questions_html).querySelectorAll('.box_img');
+    optionsHtml = document.querySelector(options.optionsHtml).querySelectorAll('.box_img');
+    questionsHtml = document.querySelector(options.questionsHtml).querySelectorAll('.box_img');
 
-    options_html.forEach(function(item, k) {
-      options_html_content[k] = options_html[k].parentNode.innerHTML;
-      item.setAttribute( 'draggable', true );
-      item.ondragstart = function( ev ) {
-        ev.dataTransfer.effectAllowed = 'move';
-        ev.dataTransfer.setData( 'text/html', this.innerHTML )
-        currentlyDragging = ev.target.parentNode;
-      }
+    optionsHtml.forEach((item, k) => {
+      const itemRef = item;
+      optionsHtmlContent[k] = optionsHtml[k].parentNode.innerHTML;
+      itemRef.setAttribute('draggable', true);
+      itemRef.ondragstart = (event) => {
+        const eventRef = event;
+        const target = event.currentTarget;
+        eventRef.dataTransfer.effectAllowed = 'move';
+        eventRef.dataTransfer.setData('text/html', target.innerHTML);
+        currentlyDragging = eventRef.target.parentNode;
+      };
     });
 
-    questions_html.forEach(function(item, k) {
-      item.ondragenter = item.ondragover = function( ev ) {
-        ev.preventDefault();
+    questionsHtml.forEach((item, k) => {
+      const itemRef = item;
+
+      itemRef.ondragenter = (event) => {
+        event.preventDefault();
       };
 
-      item.ondrop = function(ev) {
-        ev.preventDefault();
+      itemRef.ondragover = (event) => {
+        event.preventDefault();
+      };
 
-        if(item.innerHTML === '') {
-          item.appendChild(currentlyDragging);
-          selected[k] = parseInt(currentlyDragging.getAttribute('data-option'));
+      itemRef.ondrop = (event) => {
+        event.preventDefault();
+
+        if (itemRef.innerHTML === '') {
+          itemRef.appendChild(currentlyDragging);
+          selected[k] = parseInt(currentlyDragging.getAttribute('data-option'), 10);
           currentlyDragging = null;
         }
       };
@@ -46,67 +60,69 @@ const createDragAndDropImages = (options) => {
 
   activateDragAndDrop();
 
-  questions_html.forEach(function(item, i) {
+  questionsHtml.forEach((item) => {
     selected.push(0);
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 
-  addEventHandler(check_button, 'click', function() {
-    var iterate = 0;
+  addEventHandler(checkButton, 'click', () => {
+    let iterate = 0;
 
-    questions_html.forEach(function(item, i) {
-      if(selected[i] != 0) {
-        if(selected[i] == answers[i]) {
+    questionsHtml.forEach((item, i) => {
+      if (selected[i] !== 0) {
+        if (selected[i] === answers[i]) {
           item.nextSibling.appendChild(addValidationIcon('good'));
         } else {
           item.nextSibling.appendChild(addValidationIcon('wrong'));
         }
 
-        answer_button.style.display = 'inline-block';
-        reset_button.style.display = 'inline-block';
-        check_button.style.display = 'none';
+        answerButton.style.display = 'inline-block';
+        resetButton.style.display = 'inline-block';
+        checkButton.style.display = 'none';
       } else {
-        iterate++;
+        iterate += 1;
       }
     });
 
-    if(iterate === questions_html.length) {
-      questions_html_box.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    if (iterate === questionsHtml.length) {
+      questionsHtmlBox.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
     } else {
-      questions_html_box.querySelector('.js-invalid-msg').innerHTML = '';
+      questionsHtmlBox.querySelector('.js-invalid-msg').innerHTML = '';
     }
   });
 
-  addEventHandler(reset_button, 'click', function() {
-    questions_html.forEach(function(item, i) {
+  addEventHandler(resetButton, 'click', () => {
+    questionsHtml.forEach((item, i) => {
+      const itemRef = item;
       selected[i] = 0;
-      item.innerHTML = '';
-      item.nextSibling.innerHTML = '';
+      itemRef.innerHTML = '';
+      itemRef.nextSibling.innerHTML = '';
     });
 
-    options_html.forEach(function(item, i) {
-      document.querySelectorAll('.box_answer_content')[i].innerHTML = options_html_content[i];
+    optionsHtml.forEach((item, i) => {
+      document.querySelectorAll('.box_answer_content')[i].innerHTML = optionsHtmlContent[i];
     });
 
     activateDragAndDrop();
 
-    answer_button.style.display = 'none';
-    reset_button.style.display = 'none';
-    check_button.style.display = 'inline-block';
+    answerButton.style.display = 'none';
+    resetButton.style.display = 'none';
+    checkButton.style.display = 'inline-block';
   });
 
-  addEventHandler(answer_button, 'click', function() {
-    questions_html.forEach(function(item, i) {
+  addEventHandler(answerButton, 'click', () => {
+    questionsHtml.forEach((item, i) => {
+      const itemRef = item;
       selected[i] = 0;
-      item.innerHTML = options_html_content[answers[i] - 1];
-      item.nextSibling.innerHTML = '';
+      itemRef.innerHTML = optionsHtmlContent[answers[i] - 1];
+      itemRef.nextSibling.innerHTML = '';
     });
 
-    options_html.forEach(function(item, i) {
+    optionsHtml.forEach((item, i) => {
       document.querySelectorAll('.box_answer_content')[i].innerHTML = '';
     });
   });
-}
-/*--Drag and drop images END --*/
+};
+// Drag and drop images END
 
 export default createDragAndDropImages;
