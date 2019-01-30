@@ -4,6 +4,7 @@ import {
   createDragAndDrop,
   createMultipleUniqueAnswers,
   createMultipleAnswers,
+  createFalseAndTrue,
 } from '../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
@@ -149,5 +150,15 @@ if (document.querySelector('.questions_6_1') !== null) {
       [3, 4],
       [1, 3, 4],
     ],
+  });
+}
+
+if (document.querySelector('.questions_7_1') !== null) {
+  createFalseAndTrue({
+    questionsHtml: '.questions_7_1',
+    checkButton: '#check_answers_7_1',
+    resetButton: '#reset_answers_7_1',
+    answerButton: '#answers_7_1',
+    answers: [1, 2, 1, 1],
   });
 }
