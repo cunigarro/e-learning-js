@@ -56,10 +56,9 @@ function goNext(pageNumber) {
     } else {
       newLink = `p${tempPage}.html`;
     }
-  } else {
-    newLink = '/';
+
+    window.location.href = newLink;
   }
-  window.location.href = newLink;
 }
 
 // Menu
