@@ -7,7 +7,7 @@ import {
   createFalseAndTrue,
   createDragAndDropImages,
   createAccordionSelect,
-} from '../src/js/e-learning-js';
+} from '../../src/js/e-learning-js';
 
 const jsConf = document.querySelector('.js-conf');
 

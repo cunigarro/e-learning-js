@@ -4,11 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
   entry: {
     'e-learning-js': './src/js/e-learning-js.js',
-    main: './docs/main.js',
+    main: './docs/js/main.js',
   },
   output: {
     filename: '[name].min.js',
-    path: path.resolve(__dirname, 'docs/public'),
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
