@@ -1,60 +1,80 @@
-/*--Accordion select BEGIN --*/
-const createAccordionSelect = (options) => {
-  var questions_html = document.querySelector(options.questions_html);
-  var selects = questions_html.querySelectorAll('select');
-  var check_button = document.querySelector(options.check_button);
-  var reset_button = document.querySelector(options.reset_button);
-  var answer_button = document.querySelector(options.answer_button);
-  var answers = options.answers;
+import addEventHandler from '../utilities/add-event-handler';
+import addValidationIcon from '../utilities/add-validation-icon';
 
-  selects.forEach(function(item, i){
+// Accordion select BEGIN
+const createAccordionSelect = (options) => {
+  const questionsHtml = document.querySelector(options.questionsHtml);
+  const selects = questionsHtml.querySelectorAll('select');
+  const checkButton = document.querySelector(options.checkButton);
+  const resetButton = document.querySelector(options.resetButton);
+  const answerButton = document.querySelector(options.answerButton);
+  const answers = [
+    ...options.answers,
+  ];
+
+  questionsHtml.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
+
+  selects.forEach((item) => {
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 
-  addEventHandler(check_button, 'click', function() {
-    selects.forEach(function(item, i) {
-      var correct_answer = answers[i];
-      var user_answer = item.value;
+  addEventHandler(checkButton, 'click', () => {
+    let iterate = 0;
 
-      item.nextElementSibling.innerHTML = '';
-      if(user_answer.length > 0) {
-        if (correct_answer == user_answer) {
-          item.nextElementSibling.appendChild(addValidationIcon('good'));
+    selects.forEach((item, i) => {
+      const itemRef = item;
+      const correctAnswer = answers[i];
+      const userAnswer = itemRef.value;
+
+      itemRef.nextElementSibling.innerHTML = '';
+      if (userAnswer.length > 0) {
+        if (correctAnswer === parseInt(userAnswer, 10)) {
+          itemRef.nextElementSibling.appendChild(addValidationIcon('good'));
         } else {
-          item.nextElementSibling.appendChild(addValidationIcon('wrong'));
+          itemRef.nextElementSibling.appendChild(addValidationIcon('wrong'));
         }
 
-        answer_button.style.display = 'inline-block';
-        reset_button.style.display = 'inline-block';
-        check_button.style.display = 'none';
+        answerButton.style.display = 'inline-block';
+        resetButton.style.display = 'inline-block';
+        checkButton.style.display = 'none';
+      } else {
+        iterate += 1;
+      }
+    });
+
+    if (iterate === selects.length) {
+      questionsHtml.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    } else {
+      questionsHtml.querySelector('.js-invalid-msg').innerHTML = '';
+    }
+  });
+
+  addEventHandler(resetButton, 'click', () => {
+    selects.forEach((item) => {
+      const itemRef = item;
+      itemRef.selectedIndex = null;
+      itemRef.nextElementSibling.innerHTML = '';
+    });
+
+    answerButton.style.display = 'none';
+    resetButton.style.display = 'none';
+    checkButton.style.display = 'inline-block';
+  });
+
+  addEventHandler(answerButton, 'click', () => {
+    selects.forEach((item, i) => {
+      const itemRef = item;
+      const userAnswer = itemRef.value;
+
+      itemRef.value = '';
+      itemRef.nextElementSibling.innerHTML = '';
+
+      if (userAnswer.length > 0) {
+        itemRef.value = answers[i];
       }
     });
   });
-
-  addEventHandler(reset_button, 'click', function() {
-    selects.forEach(function(item, i) {
-      item.selectedIndex = null;
-      item.nextElementSibling.innerHTML = '';
-    });
-
-    answer_button.style.display = 'none';
-    reset_button.style.display = 'none';
-    check_button.style.display = 'inline-block';
-  });
-
-  addEventHandler(answer_button, 'click', function() {
-    selects.forEach(function(item, i) {
-      var user_answer = item.value;
-
-      item.value = '';
-      item.nextElementSibling.innerHTML = '';
-
-      if(user_answer.length > 0) {
-        item.value = answers[i];
-      }
-    });
-  });
-}
-/*--Accordion select END --*/
+};
+// Accordion select END
 
 export default createAccordionSelect;

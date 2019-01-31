@@ -2,8 +2,7 @@
   "name": "e-learning-js",
   "version": "0.1.2",
   "description": "E-learning js library was created with the promise for help to create activities for e-learning courses that can return data about evaluation and time. It is will be based on a standard called SCORM that let me us set data easily on e-learning platform like Blackboard and Moodle.",
-  "sass": "src/scss/e-learning-js",
-  "main": "src/js/e-learning-js",
+  "main": "dist/e-learning-js.min.js",
   "scripts": {
     "develop": "webpack --mode development --watch",
     "build": "webpack --mode production"
@@ -26,6 +25,9 @@
     "@babel/preset-env": "^7.0.0-beta.47",
     "babel-loader": "^8.0.0-beta.3",
     "css-loader": "^0.28.11",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "extract-text-webpack-plugin": "^4.0.0-alpha.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",

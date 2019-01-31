@@ -1,60 +1,83 @@
-/*-- Multiple choice BEGIN --*/
-const createMultipleChoice = (options) => {
-  var questions_html = document.querySelector(options.questions_html);
-  var inputs = questions_html.querySelectorAll('input');
-  var check_button = document.querySelector(options.check_button);
-  var reset_button = document.querySelector(options.reset_button);
-  var answer_button = document.querySelector(options.answer_button);
-  var answers = options.answers;
+import addEventHandler from '../utilities/add-event-handler';
+import addValidationIcon from '../utilities/add-validation-icon';
 
-  inputs.forEach(function(item, i){
+// Multiple choice BEGIN
+const createMultipleChoice = (options) => {
+  const questionsHtml = document.querySelector(options.questionsHtml);
+  const inputs = questionsHtml.querySelectorAll('input');
+  const checkButton = document.querySelector(options.checkButton);
+  const resetButton = document.querySelector(options.resetButton);
+  const answerButton = document.querySelector(options.answerButton);
+  const answers = [
+    ...options.answers,
+  ];
+
+  questionsHtml.insertAdjacentHTML('beforeend', '<span class="js-invalid-msg invalid_msg"></span>');
+
+  inputs.forEach((item) => {
     item.insertAdjacentHTML('afterend', '<span></span>');
   });
 
-  addEventHandler(check_button, 'click', function() {
-    inputs.forEach(function(item, i) {
-      var correct_answer = answers[i];
-      var user_answer = item.value;
+  addEventHandler(checkButton, 'click', () => {
+    let iterate = 0;
 
-      item.nextElementSibling.innerHTML = '';
-      if(user_answer.length > 0) {
-        if (correct_answer.indexOf(user_answer.trim()) > -1) {
+    inputs.forEach((item, i) => {
+      const correctAnswer = answers[i];
+      const userAnswer = item.value;
+      const input = item;
+
+      input.nextElementSibling.innerHTML = '';
+
+      if (userAnswer.length > 0) {
+        if (correctAnswer.indexOf(userAnswer.trim()) > -1) {
           item.nextElementSibling.appendChild(addValidationIcon('good'));
         } else {
           item.nextElementSibling.appendChild(addValidationIcon('wrong'));
         }
 
-        answer_button.style.display = 'inline-block';
-        reset_button.style.display = 'inline-block';
-        check_button.style.display = 'none';
+        answerButton.style.display = 'inline-block';
+        resetButton.style.display = 'inline-block';
+        checkButton.style.display = 'none';
+      } else {
+        iterate += 1;
+      }
+    });
+
+    if (iterate === inputs.length) {
+      questionsHtml.querySelector('.js-invalid-msg').innerHTML = 'Enter at least one response.';
+    } else {
+      questionsHtml.querySelector('.js-invalid-msg').innerHTML = '';
+    }
+  });
+
+  addEventHandler(resetButton, 'click', () => {
+    inputs.forEach((item) => {
+      const input = item;
+      input.value = '';
+      input.nextElementSibling.innerHTML = '';
+    });
+
+    answerButton.style.display = 'none';
+    resetButton.style.display = 'none';
+    checkButton.style.display = 'inline-block';
+  });
+
+  addEventHandler(answerButton, 'click', () => {
+    inputs.forEach((item, i) => {
+      const input = item;
+      const userAnswer = input.value;
+
+      input.value = '';
+      input.nextElementSibling.innerHTML = '';
+
+      if (userAnswer.length > 0) {
+        const answer = answers[i];
+        const value = answer[0];
+        input.value = value;
       }
     });
   });
-
-  addEventHandler(reset_button, 'click', function() {
-    inputs.forEach(function(item, i) {
-      item.value = '';
-      item.nextElementSibling.innerHTML = '';
-    });
-
-    answer_button.style.display = 'none';
-    reset_button.style.display = 'none';
-    check_button.style.display = 'inline-block';
-  });
-
-  addEventHandler(answer_button, 'click', function() {
-    inputs.forEach(function(item, i) {
-      var user_answer = item.value;
-
-      item.value = '';
-      item.nextElementSibling.innerHTML = '';
-
-      if(user_answer.length > 0) {
-        item.value = answers[i][0];
-      }
-    });
-  });
-}
-/*-- Multiple choice END --*/
+};
+// Multiple choice END
 
 export default createMultipleChoice;

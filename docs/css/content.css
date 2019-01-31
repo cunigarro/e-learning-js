@@ -146,7 +146,7 @@ table{
 
 /*--List--*/
 .normal_list, .word_list, .number_list, .no_list{
-	margin: 2px 1%;
+	margin: 10px 1%;
 	color: #333;
 	text-align: justify;
 	padding: 0;

@@ -1,7 +1,3 @@
-// Utilities
-import addEventHandler from './utilities/add-event-handler';
-import addValidationIcon from './utilities/add-validation-icon';
-
 // Activities
 import createMultipleChoice from './activities/multiple-choice';
 import createSelect from './activities/select';
@@ -13,12 +9,10 @@ import createDragAndDropImages from './activities/drag-and-drop-images';
 import createAccordionSelect from './activities/accordion-select';
 
 // CSS
-import './../scss/e-learning-js.scss';
+import '../scss/e-learning-js.scss';
 
 // Set functions on global
-Object.assign(window, {
-  addEventHandler,
-  addValidationIcon,
+export {
   createMultipleChoice,
   createSelect,
   createDragAndDrop,
@@ -26,5 +20,5 @@ Object.assign(window, {
   createMultipleAnswers,
   createFalseAndTrue,
   createDragAndDropImages,
-  createAccordionSelect
-});
+  createAccordionSelect,
+};
