@@ -2,11 +2,11 @@
 
 E-learning Js is licensed under a [MIT License](https://github.com/cunigarro/e-learning-js/blob/master/LICENSE).
 
-Actually this library is an entire demo, feel free to download and use it on any project.
+This library is an entire demo; you can download and use it on any project.
 
 <h2>List of activities:</h2>
 
-Each design has a default design but you can also replace the images to fit your design.
+Each design has a default design, but you can also replace the images to fit your design.
 
 These are the following activities:
 
@@ -51,9 +51,9 @@ import 'e-learning-js';
 
 <h2>Usage:</h2>
 
-You need to follow the next html structure for each activity and add javascript parameters for each of one.
+You need to follow the next HTML structure for each activity and add JavaScript parameters for each one.
 
-Add the css file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.css) inside the head tag and the js file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.js) inside the body tag before close it.
+Add the CSS file [e-learning_activities_0.1.css](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.css) inside the head tag and the JS file [e-learning_activities_0.1.js](https://github.com/cunigarro/e-learning-js/blob/master/dist/e-learning-js.min.js) inside the body tag before closing it.
 
 <h3>Multiple choice</h3>
 
