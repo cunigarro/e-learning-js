@@ -1,5 +1,9 @@
 <h1>E-learning Js 0.1 (Alpha 1)</h1>
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/415162b2-48d7-4f28-b1c0-fd3372c8e6a8" alt="logo" width="200">
+</p>
+
 E-learning Js is licensed under a [MIT License](https://github.com/cunigarro/e-learning-js/blob/master/LICENSE).
 
 This library is an entire demo; you can download and use it on any project.
