@@ -20,9 +20,6 @@
     "url": "https://github.com/cunigarro/e-learning-js/issues"
   },
   "homepage": "https://github.com/cunigarro/e-learning-js#readme",
-  "engines": {
-    "node": "10.24.1"
-  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.47",
     "@babel/preset-env": "^7.0.0-beta.47",
