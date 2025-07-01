@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import MultipleChoice from './components/MultipleChoice';
+
 
 function App() {
+  const questions = [
+  "What is the capital of France?",
+  "2 + 2 = ?",
+];
+
+const correctAnswers = [
+  ["Paris"],
+  ["4"],
+];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MultipleChoice
+        questions={questions}
+        correctAnswers={correctAnswers}
+      />
     </div>
   );
 }
